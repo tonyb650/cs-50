@@ -9,10 +9,14 @@ int main(void)
     } while (height < 1 || height >8);
     for(int i = 0; i < height; i++)
     {
-        for(int j = 0 ; j < i ; j++)
+        for(int j = 0 ; j < height ; j++)
         {
-            printf(" ");
+            if(j<i){
+                printf(" ");
+            } else {
+                printf("#");
+            }
         }
-        printf("#\n");
+        printf("\n");
     }
 }
