@@ -1,6 +1,6 @@
 #include <cs50.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 int get_cents(void);
 int calculate_quarters(int cents);
@@ -51,19 +51,19 @@ int get_cents(void)
 int calculate_quarters(int cents)
 {
     // TODO
-    return trunc(cents/25);
+    return trunc(cents / 25);
 }
 
 int calculate_dimes(int cents)
 {
     // TODO
-    return trunc(cents/10);
+    return trunc(cents / 10);
 }
 
 int calculate_nickels(int cents)
 {
     // TODO
-    return trunc(cents/5);
+    return trunc(cents / 5);
 }
 
 int calculate_pennies(int cents)
