@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <math.h>
 
 int get_cents(void);
 int calculate_quarters(int cents);
@@ -10,11 +11,8 @@ int calculate_pennies(int cents);
 int main(void)
 {
     // Ask how many cents the customer is owed
-    do {
-        int cents = get_cents();
-    }
-    while (cents < 1);
-    printf("cents %i\n",cents)
+    int cents = get_cents();
+
     // Calculate the number of quarters to give the customer
     int quarters = calculate_quarters(cents);
     cents = cents - quarters * 25;
@@ -41,29 +39,35 @@ int main(void)
 int get_cents(void)
 {
     // TODO
-    return 0;
+    int response;
+    do
+    {
+        response = get_int("Change owed: ");
+    }
+    while (response < 1);
+    return response;
 }
 
 int calculate_quarters(int cents)
 {
     // TODO
-    return 0;
+    return trunc(cents/25);
 }
 
 int calculate_dimes(int cents)
 {
     // TODO
-    return 0;
+    return trunc(cents/10);
 }
 
 int calculate_nickels(int cents)
 {
     // TODO
-    return 0;
+    return trunc(cents/5);
 }
 
 int calculate_pennies(int cents)
 {
     // TODO
-    return 0;
+    return cents;
 }
