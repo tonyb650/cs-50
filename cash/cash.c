@@ -13,8 +13,8 @@ int main(void)
     do {
         int cents = get_cents();
     }
-    while (cents > 1);
-    
+    while (cents < 1);
+    printf("cents %i\n",cents)
     // Calculate the number of quarters to give the customer
     int quarters = calculate_quarters(cents);
     cents = cents - quarters * 25;
