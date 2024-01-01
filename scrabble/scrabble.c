@@ -28,10 +28,11 @@ int compute_score(string word)
     for(int i = 0 ; i < strlen(word); i++)
     {
         char c = word[i];
-        if(isupper(c)){
+        if(islower(c)){
             c -=32;
         }
         printf("char %c &  %d\n", c, c);
+        printf("value= %i\n", POINTS[c-65]);
 
     }
     return 0;
