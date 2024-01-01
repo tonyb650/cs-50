@@ -28,8 +28,8 @@ int compute_score(string word)
     for(int i = 0 ; i < strlen(word); i++)
     {
         char c = word[i];
-        printf("char %c\n", c);
-        
+        printf("char %c &  %d\n", c, c);
+
     }
     return 0;
 }
