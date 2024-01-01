@@ -29,6 +29,7 @@ int compute_score(string word)
     {
         char c = word[i];
         printf("char %c\n", c);
+        
     }
     return 0;
 }
