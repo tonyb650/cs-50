@@ -24,5 +24,9 @@ int main(void)
 int compute_score(string word)
 {
     // TODO: Compute and return score for string
-    
+    for(int i = 0 ; i < word.length, i++)
+    {
+        printf("char %s\n",word[i]);
+    }
+
 }
