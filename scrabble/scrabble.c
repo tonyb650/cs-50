@@ -28,6 +28,9 @@ int compute_score(string word)
     for(int i = 0 ; i < strlen(word); i++)
     {
         char c = word[i];
+        if(isupper(c)){
+            c -=32;
+        }
         printf("char %c &  %d\n", c, c);
 
     }
