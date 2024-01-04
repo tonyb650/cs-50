@@ -16,7 +16,7 @@ int main(int argc, string argv[])
         return 1;
     }
     // printf("argc= %i\n", argc);
-    string plaintext = get_string("plaintext: ");
+    string plaintext = get_string("plaintext:  ");
     // printf("c: %i\n", plaintext[0]);
     int n = strlen(plaintext);
     char ciphertext[n];
@@ -37,4 +37,5 @@ int main(int argc, string argv[])
          }
     }
     printf("ciphertext: %s\n", ciphertext);
+    return 0;
 }
