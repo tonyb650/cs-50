@@ -5,6 +5,8 @@
 
 _Bool only_digits(string str);
 
+string rotate (string plaintext, int key);
+
 int main(int argc, string argv[])
 {
     if(argc != 2) {
@@ -19,11 +21,32 @@ int main(int argc, string argv[])
     int key = atoi(argv[1]);
     string plaintext = get_string("plaintext:  ");
     // printf("c: %i\n", plaintext[0]);
-    int n = strlen(plaintext);
-    char ciphertext[n];
+    // int n = strlen(plaintext);
+    // char ciphertext[n];
     // char ciphertext[strlen(plaintext)+1];
-    printf("ciphertext %s\n", ciphertext);
-    for (int i = 0; i < n; i++)
+    // printf("ciphertext %s\n", ciphertext);
+    // ciphertext[n] = 0;
+    string ciphertext = rotate(plaintext, key);
+    printf("ciphertext: %s\n", ciphertext);
+    // printf("n= %i\n", n);
+    return 0;
+}
+
+_Bool only_digits(string str)
+{
+    for (int i = 0, n = strlen(str); i < n; i++){
+        if (str[i] < 48 || str[i] >57)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+string rotate (string plaintext, int key)
+{
+    char ciphertext[strlen(plaintext)];
+    for (int i = 0, n = strlen(plaintext); i < n; i++)
     {
          char c = plaintext[i];
          if (c <= 90 && c >= 65)
@@ -39,19 +62,5 @@ int main(int argc, string argv[])
             ciphertext[i] = c;
          }
     }
-    // ciphertext[n] = 0;
-    printf("ciphertext: %s\n", ciphertext);
-    // printf("n= %i\n", n);
-    return 0;
-}
-
-_Bool only_digits(string str)
-{
-    for (int i = 0, n = strlen(str); i < n; i++){
-        if (str[i] < 48 || str[i] >57)
-        {
-            return false;
-        }
-    }
-    return true;
+    return ciphertext;
 }
