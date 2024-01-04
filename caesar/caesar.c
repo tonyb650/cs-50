@@ -27,10 +27,10 @@ int main(int argc, string argv[])
         return 1;
     };
     int key = atoi(argv[1]);
-    // printf("argc= %i\n", argc);
     string plaintext = get_string("plaintext:  ");
-    printf("c: %i\n", plaintext[0]);
+    // printf("c: %i\n", plaintext[0]);
     int n = strlen(plaintext);
+    // printf("n= %i\n", n);
     char ciphertext[n];
     for (int i = 0; i < n; i++)
     {
