@@ -5,12 +5,17 @@
 
 int main(int argc, string argv[])
 {
-    if(argc < 2) {
-        printf("Key is needed.\n");
+    if(argc != 2) {
+        // printf("Key is needed.\n");
+        printf("Usage: ./caesar key\n");
+        return 1;
+    }
+    int key = atoi(argv[1]);
+    if (key == 0) {
+        printf("Usage: ./caesar key\n");
         return 1;
     }
     // printf("argc= %i\n", argc);
-    int key = atoi(argv[1]);
     string plaintext = get_string("plaintext: ");
     // printf("c: %i\n", plaintext[0]);
     int n = strlen(plaintext);
