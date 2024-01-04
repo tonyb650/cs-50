@@ -48,6 +48,7 @@ int main(int argc, string argv[])
             ciphertext[i] = c;
          }
     }
+    ciphertext[n] = 0;
     printf("ciphertext: %s\n", ciphertext);
     // printf("n= %i\n", n);
     return 0;
