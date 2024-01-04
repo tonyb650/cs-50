@@ -23,22 +23,21 @@ int main(void)
     printf("Score2 %i\n", score2);
     if (score1 > score2)
     {
-        printf("The winner is player 1\n");
+        printf("Player 1 wins!\n");
     }
     else if (score1 < score2)
     {
-        printf("The winner is player 2\n");
+        printf("Player 2 wins!\n");
     }
     else
     {
-        printf("There is no winner\n");
+        printf("Tie!\n");
     }
 }
 
 int compute_score(string word)
 {
     // TODO: Compute and return score for string
-    // int i = strlen(word);
     int score = 0;
     for (int i = 0, n = strlen(word); i < n; i++)
     {
