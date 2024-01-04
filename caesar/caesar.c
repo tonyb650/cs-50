@@ -12,13 +12,20 @@ int main(int argc, string argv[])
     // printf("argc= %i\n", argc);
     int key = atoi(argv[1]);
     string plaintext = get_string("plaintext: ");
-    printf("c: %i\n", plaintext[0]);
+    // printf("c: %i\n", plaintext[0]);
     int n = strlen(plaintext);
-    char* ciphertext[n];
-    // for (int i = 0; i < n; i++)
-    // {
-    //     char c = plaintext[i];
-    //     ciphertext[i] = c;
-    // }
-    // printf("ciphertext: %s\n", ciphertext);
+    char ciphertext[n];
+    for (int i = 0; i < n; i++)
+    {
+         char c = plaintext[i];
+         if (c <= 90 && c >= 65)
+         {
+             ciphertext[i] = (c + key - 65) % 26;
+         }
+         else if (c <= 122 && c>= 97)
+         {
+             ciphertext[i] = (c + key - 65) % 26;
+         }
+    }
+    printf("ciphertext: %s\n", ciphertext);
 }
