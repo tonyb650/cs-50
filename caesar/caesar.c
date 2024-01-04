@@ -3,17 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// _Bool only_digits(string str)
-// {
-//     for (int i = 0, n = strlen(str); i < n; i++){
-//         if (str[i] < 48 || str[i] >57)
-//         {
-//             return false;
-//         }
-//     }
-//     return true;
-// }
-
+_Bool only_digits(string str);
 
 int main(int argc, string argv[])
 {
@@ -21,18 +11,18 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
-    // if (!only_digits(argv[1]))
-    // {
-    //     printf("Usage: ./caesar key\n");
-    //     return 1;
-    // };
+    if (!only_digits(argv[1]))
+    {
+        printf("Usage: ./caesar key\n");
+        return 1;
+    };
     int key = atoi(argv[1]);
     string plaintext = get_string("plaintext:  ");
     // printf("c: %i\n", plaintext[0]);
     int n = strlen(plaintext);
     char ciphertext[n];
     // char ciphertext[strlen(plaintext)+1];
-    // printf("ciphertext %s\n", ciphertext);
+    printf("ciphertext %s\n", ciphertext);
     for (int i = 0; i < n; i++)
     {
          char c = plaintext[i];
@@ -53,4 +43,15 @@ int main(int argc, string argv[])
     printf("ciphertext: %s\n", ciphertext);
     // printf("n= %i\n", n);
     return 0;
+}
+
+_Bool only_digits(string str)
+{
+    for (int i = 0, n = strlen(str); i < n; i++){
+        if (str[i] < 48 || str[i] >57)
+        {
+            return false;
+        }
+    }
+    return true;
 }
