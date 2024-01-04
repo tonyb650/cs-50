@@ -29,10 +29,9 @@ int main(int argc, string argv[])
     int key = atoi(argv[1]);
     string plaintext = get_string("plaintext:  ");
     // printf("c: %i\n", plaintext[0]);
-    int l = strlen(plaintext);
-    // printf("n= %i\n", n);
-    char ciphertext[l];
-    for (int i = 0; i < l; i++)
+    int n = strlen(plaintext);
+    char ciphertext[n];
+    for (int i = 0; i < n; i++)
     {
          char c = plaintext[i];
          if (c <= 90 && c >= 65)
@@ -49,5 +48,6 @@ int main(int argc, string argv[])
          }
     }
     printf("ciphertext: %s\n", ciphertext);
+    printf("n= %i\n", n);
     return 0;
 }
