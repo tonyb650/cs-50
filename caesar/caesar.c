@@ -5,7 +5,7 @@
 
 bool only_digits(string s);
 
-string rotate (string plaintext, int key);
+char rotate (char c, int n);
 
 int main(int argc, string argv[])
 {
@@ -26,8 +26,14 @@ int main(int argc, string argv[])
     // char ciphertext[strlen(plaintext)+1];
     // printf("ciphertext %s\n", ciphertext);
     // ciphertext[n] = 0;
-    string ciphertext = rotate(plaintext, key);
-    printf("ciphertext: %s\n", ciphertext);
+    // string ciphertext = rotate(plaintext, key);
+    // char ciphertext[strlen(plaintext)];
+    for (int i = 0, n = strlen(plaintext); i < n; i++)
+    {
+         plaintext[i] = rotate(plaintext[i], key);
+    }
+    // return pl;
+    printf("ciphertext: %s\n", plaintext);
     // printf("n= %i\n", n);
     return 0;
 }
@@ -43,24 +49,17 @@ bool only_digits(string s)
     return true;
 }
 
-string rotate (string plaintext, int key)
+char rotate (char c, int n)
 {
-    char ciphertext[strlen(plaintext)];
-    for (int i = 0, n = strlen(plaintext); i < n; i++)
     {
-         char c = plaintext[i];
          if (c <= 90 && c >= 65)
          {
-             ciphertext[i] = ((c + key - 65) % 26) + 65;
+             c = ((c + n - 65) % 26) + 65;
          }
          else if (c <= 122 && c>= 97)
          {
-             ciphertext[i] = ((c + key - 97) % 26) + 97;
-         }
-         else
-         {
-            ciphertext[i] = c;
+             c = ((c + n - 97) % 26) + 97;
          }
     }
-    return ciphertext;
+    return c;
 }
