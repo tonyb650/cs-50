@@ -30,7 +30,8 @@ int main(int argc, string argv[])
     string plaintext = get_string("plaintext:  ");
     // printf("c: %i\n", plaintext[0]);
     int n = strlen(plaintext);
-    char ciphertext[n];
+    char ciphertext[strlen(plaintext)];
+    printf("ciphertext %s\n", ciphertext);
     for (int i = 0; i < n; i++)
     {
          char c = plaintext[i];
@@ -48,6 +49,6 @@ int main(int argc, string argv[])
          }
     }
     printf("ciphertext: %s\n", ciphertext);
-    printf("n= %i\n", n);
+    // printf("n= %i\n", n);
     return 0;
 }
