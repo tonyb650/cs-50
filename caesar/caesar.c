@@ -20,11 +20,15 @@ int main(int argc, string argv[])
          char c = plaintext[i];
          if (c <= 90 && c >= 65)
          {
-             ciphertext[i] = (c + key - 65) % 26;
+             ciphertext[i] = ((c + key - 65) % 26) + 65;
          }
          else if (c <= 122 && c>= 97)
          {
-             ciphertext[i] = (c + key - 65) % 26;
+             ciphertext[i] = ((c + key - 97) % 26) + 97;
+         }
+         else
+         {
+            ciphertext[i] = c;
          }
     }
     printf("ciphertext: %s\n", ciphertext);
