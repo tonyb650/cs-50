@@ -3,15 +3,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-function only_digits(str)
+Boolean only_digits(str)
 {
     for (int i = 0, n = strlen(str); i++){
         if (str[i] < 48 || str[i] >57)
         {
-            printf("Usage: ./caesar key\n");
-            return 1;
+            return false;
         }
     }
+    return true;
 }
 
 
@@ -22,11 +22,13 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
-    only_digits(argv[1]);
+    if (only_digits(argv[1]))
+    {
+        printf("Usage: ./caesar key\n");
+        return 1;
+    };
     int key = atoi(argv[1]);
     // if (key == 0) {
-    //     printf("Usage: ./caesar key\n");
-    //     return 1;
     // }
     // printf("argc= %i\n", argc);
     string plaintext = get_string("plaintext:  ");
