@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-Boolean only_digits(str)
+_Bool only_digits(string str[])
 {
-    for (int i = 0, n = strlen(str); i++){
+    for (int i = 0, n = strlen(str); i < n; i++){
         if (str[i] < 48 || str[i] >57)
         {
             return false;
