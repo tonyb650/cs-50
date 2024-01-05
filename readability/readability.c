@@ -1,8 +1,8 @@
 #include <cs50.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 
 int main(void)
 {
@@ -23,7 +23,8 @@ int main(void)
             sentences++;
             letters--;
         }
-        else if (textBlock[i] <65 || textBlock[i] > 122 || (textBlock[i] > 90 && textBlock[i] < 97)) // other punctuation or numbers
+        else if (textBlock[i] < 65 || textBlock[i] > 122 ||
+                 (textBlock[i] > 90 && textBlock[i] < 97)) // other punctuation or numbers
         {
             letters--;
         }
@@ -33,14 +34,14 @@ int main(void)
 
     // calculate L (letters/(words/100))
     // where L is the average number of letters per 100 words in the text,
-    float L = (float) letters / ((float) words/100);
+    float L = (float) letters / ((float) words / 100);
 
     // calculate S (sentences/(words/100))
     // where S is the average number of sentences per 100 words in the text.
-    float S = (float) sentences / ((float)words/100);
+    float S = (float) sentences / ((float) words / 100);
 
     // Finally, calculate index
-    float index = round(0.0588 * L - 0.296 * S -15.8);
+    float index = round(0.0588 * L - 0.296 * S - 15.8);
     if (index < 1)
     {
         printf("Before Grade 1\n");
