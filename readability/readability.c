@@ -7,7 +7,7 @@ int main(void)
 {
     string textBlock = get_string("Text: ");
     int characters = strlen(textBlock);
-    int periods = 0;
+    int scentenceEnds = 0;
     int spaces = 0;
     int letters = characters;
     for (int i = 0; i < characters; i++)
@@ -17,9 +17,9 @@ int main(void)
             spaces++;
             letters--;
         }
-        else if (textBlock[i] == 46) //period
+        else if (textBlock[i] == 46 || textBlock[i] == 33 || textBlock[i] == 63) // period, exclamation mark, question mark
         {
-            periods++;
+            scentenceEnds++;
             letters--;
         }
         else if (textBlock[i] <65 || textBlock[i] > 122 || (textBlock[i] > 90 && textBlock[i] < 97)) // other punctuation
@@ -28,19 +28,25 @@ int main(void)
         }
     }
     printf("Spaces %i\n", spaces);
-    printf("periods %i\n", periods);
+    printf("scentenceEnds %i\n", scentenceEnds);
     printf("Letters %i\n", letters);
     // index = 0.0588 * L - 0.296 * S -15.8;
     // where L is the average number of letters per 100 words in the text,
     // and S is the average number of sentences per 100 words in the text.
     // Steps:
     // - get word count
-    
+    int words = spaces + 1;
     // - get letter count
+
     // calculate L (letters/(words/100))
+    int L = letters / (words/100);
     // - get number of sentences
+    int sentences = scentenceEnds;
     // - calculate S (sentences/(words/100))
-    //
+    int S = sentences / (words/100);
+    printf("S %i\n", S);
+    printf("L %i\n", L);
+
     int index = 3;
     if (index < 1)
     {
