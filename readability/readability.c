@@ -31,7 +31,6 @@ int main(void)
     printf("Spaces %i\n", spaces);
     printf("scentenceEnds %i\n", scentenceEnds);
     printf("Letters %i\n", letters);
-    // index = 0.0588 * L - 0.296 * S -15.8;
     // where L is the average number of letters per 100 words in the text,
     // and S is the average number of sentences per 100 words in the text.
     // Steps:
@@ -44,18 +43,19 @@ int main(void)
     // - get number of sentences
     int sentences = scentenceEnds;
     // - calculate S (sentences/(words/100))
-    // float S = round(sentences / (words/100));
-    // printf("S %f\n", S);
+    float S = (float) sentences / ((float)words/100);
+    printf("S %f\n", S);
     printf("L %f\n", L);
 
-    int index = 3;
+    float index = round(0.0588 * L - 0.296 * S -15.8);
+    // int index = 3;
     if (index < 1)
     {
-        printf("Before Grade 1");
+        printf("Before Grade 1\n");
     }
     else
     {
-        printf("Grade %i\n", index);
+        printf("Grade %f\n", index);
     }
     return 0;
 }
