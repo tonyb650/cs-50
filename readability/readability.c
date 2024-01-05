@@ -40,13 +40,13 @@ int main(void)
     // - get letter count
 
     // calculate L (letters/(words/100))
-    float L = round(letters / (words/100));
+    float L = (float) letters / ((float) words/100);
     // - get number of sentences
     int sentences = scentenceEnds;
     // - calculate S (sentences/(words/100))
-    float S = round(sentences / (words/100));
+    // float S = round(sentences / (words/100));
     // printf("S %f\n", S);
-    // printf("L %f\n", L);
+    printf("L %f\n", L);
 
     int index = 3;
     if (index < 1)
