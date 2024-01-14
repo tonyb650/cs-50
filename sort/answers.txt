@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Bubble Sort performs the worst when the data is random(.222s) or reversed(.235s) but performs well when the data is already sorted(.089s), because each pair of elements is compared only once when the data is presorted.
+
+sort2 uses: Merge Sort
+
+How do you know?: Merge Sort outperformed the other two programs on all three types of lists: random(.073s), reversed(.082s) and sorted(.064s). The results were fairly uniform across data sets which is to be expected because the algorithm will need to do the same number of comparisons regardless of the initial state of the data.
+
+sort3 uses: Selection Sort
+
+How do you know?: Selection sort also performs uniformly across the 3 data sets but slower than the Merge Sort. This is to be expected because there will be the same number comparisons or "selections" regardless of initial state of the data.
