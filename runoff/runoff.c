@@ -129,6 +129,14 @@ bool vote(int voter, int rank, string name)
     // store votes in 'preferences'
     // preferences[i][j] is jth preference for voter i
     // int preferences[MAX_VOTERS][MAX_CANDIDATES];
+        for (int i = 0; i < candidate_count; i++)
+        {
+            if(strcmp(candidates[i].name, name) == 0)
+            {
+                preferences[]
+                return true;
+            }
+        }
     return false;
 }
 
