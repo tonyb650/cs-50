@@ -70,6 +70,9 @@ int main(int argc, string argv[])
 bool vote(string name)
 {
     for (int i = 0; i < candidate_count; i++)
+    printf("%i: ", i);
+    printf("arr %s \n",candidates[i].name);
+    printf("name %s \n",name);
     {
         if(name == candidates[i].name){
             {
