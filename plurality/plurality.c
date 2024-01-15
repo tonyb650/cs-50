@@ -57,10 +57,11 @@ int main(int argc, string argv[])
             printf("Invalid vote.\n");
         }
     }
-    for (int i = 0; i < candidate_count; i++)
-    {
-        printf("%s: %i\n",candidates[i].name , candidates[i].votes);
-    }
+    // Display all results for testing
+    // for (int i = 0; i < candidate_count; i++)
+    // {
+    //     printf("%s: %i\n",candidates[i].name , candidates[i].votes);
+    // }
 
     // Display winner of election
     print_winner();
@@ -84,12 +85,10 @@ void print_winner(void)
 {
     // TODO
     int maxVotes = 0;
-    // int maxVotesIndex = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         if(candidates[i].votes > maxVotes){
             maxVotes = candidates[i].votes;
-            // maxVotesIndex = i;
         }
     }
     for (int i = 0; i < candidate_count; i++)
