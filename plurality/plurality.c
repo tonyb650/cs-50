@@ -67,7 +67,7 @@ int main(int argc, string argv[])
 }
 
 // Update vote totals given a new vote
-bool vote(string name)
+bool vote(string name, candidate candidates)
 {
     for (int i = 0; i < candidate_count; i++)
     printf("%i: ", i);
