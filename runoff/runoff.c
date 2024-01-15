@@ -126,7 +126,9 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    // store votes 
+    // store votes in 'preferences'
+    // preferences[i][j] is jth preference for voter i
+    // int preferences[MAX_VOTERS][MAX_CANDIDATES];
     return false;
 }
 
