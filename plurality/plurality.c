@@ -74,7 +74,7 @@ bool vote(string name)
         printf("%i: ", i);
         printf("arr %s \n",candidates[i].name);
         printf("name %s \n",name);
-        if(name == candidates[i].name){
+        if(strcmp(name,candidates[i].name)){
             {
                 candidates[i].votes ++;
                 return true;
