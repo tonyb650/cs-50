@@ -55,7 +55,7 @@ int main(int argc, string argv[])
         candidates[i].eliminated = false;
     }
 
-    voter_count = get_int("Number of voters: ");
+    voter_count = 3;// get_int("Number of voters: ");
     if (voter_count > MAX_VOTERS)
     {
         printf("Maximum number of voters is %i\n", MAX_VOTERS);
@@ -142,16 +142,23 @@ bool vote(int voter, int rank, string name) // voter = voter number, rank = 0,1,
 }
 
 // Tabulate votes for non-eliminated candidates
+// return number of votes that each candidate has at this stage
 void tabulate(void)
 {
     // TODO
-    for (int  i = 0; i < candidate_count; i++)
-    {
-        if( candidates[i].eliminated == false){
-            candidates[i].votes ++;
-        }
-    }
-    return;
+    // for (int  i = 0; i < voter_count; i++)
+    // {
+    //     for (int j = 0; i < candidate_count; j++)
+    //     {
+    //         int choice = preferences[i][j];
+    //         if (candidates[choice].eliminated == false)
+    //         {
+    //             candidates[choice].votes++;
+    //             break;
+    //         }
+    //     }
+    // }
+    // return;
 }
 
 // Print the winner of the election, if there is one
