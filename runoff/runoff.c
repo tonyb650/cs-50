@@ -132,7 +132,7 @@ bool vote(int voter, int rank, string name) // voter = voter number, rank = 0,1,
     // -or- preferences[voter number][rank number] = a candidate number
     for (int i = 0; i < candidate_count; i++)
     {
-        if(strcmp(candidates[i].name, name) == 0)
+        if (strcmp(candidates[i].name, name) == 0)
         {
             preferences[voter][rank] = i; // i = candidate number
             return true;
@@ -146,7 +146,7 @@ bool vote(int voter, int rank, string name) // voter = voter number, rank = 0,1,
 void tabulate(void)
 {
     // TODO
-    for (int  i = 0; i < voter_count; i++) // loop through each voter
+    for (int i = 0; i < voter_count; i++) // loop through each voter
     {
         for (int j = 0; j < candidate_count; j++) // loop through that voter's prefs from first to last
         {
@@ -165,11 +165,11 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
-    for (int i = 0, votes = 0; i < candidate_count; i++ )
+    for (int i = 0, votes = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes > voter_count/2)
+        if (candidates[i].votes > voter_count / 2)
         {
-            printf("%s\n",candidates[i].name);
+            printf("%s\n", candidates[i].name);
             return true;
         }
     }
@@ -184,7 +184,7 @@ int find_min(void)
     int fewest_votes = voter_count;
     for (int i = 0; i < candidate_count; i++)
     {
-        if(candidates[i].votes < fewest_votes && candidates[i].eliminated == false)
+        if (candidates[i].votes < fewest_votes && candidates[i].eliminated == false)
         {
             // lowest_candidate = i;
             fewest_votes = candidates[i].votes;
@@ -213,7 +213,8 @@ void eliminate(int min)
     // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes == min){
+        if (candidates[i].votes == min)
+        {
             candidates[i].eliminated = true;
         }
     }
