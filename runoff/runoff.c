@@ -146,15 +146,15 @@ bool vote(int voter, int rank, string name) // voter = voter number, rank = 0,1,
 void tabulate(void)
 {
     // TODO
-    for (int  i = 0; i < voter_count; i++)
+    for (int  i = 0; i < voter_count; i++) // loop through each voter
     {
-        for (int j = 0; i < candidate_count; j++)
+        for (int j = 0; i < candidate_count; j++) // loop through that voter's prefs from first to last
         {
             int choice = preferences[i][j];
-            if (candidates[choice].eliminated == false)
+            if (candidates[choice].eliminated == false) // if the the voter's pref is not elimiated...
             {
-                candidates[choice].votes++;
-                break;
+                candidates[choice].votes++; // ...cast that vote...
+                break;                      // ... and disregard any remaining preferences
             }
         }
     }
