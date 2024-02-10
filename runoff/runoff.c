@@ -169,7 +169,7 @@ bool print_winner(void)
     {
         if (candidates[i].votes > voter_count/2)
         {
-            printf(candidates[i].name)
+            printf("%s\n",candidates[i].name);
             return true;
         }
     }
