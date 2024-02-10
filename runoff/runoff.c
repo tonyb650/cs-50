@@ -167,7 +167,11 @@ bool print_winner(void)
     // TODO
     for (int i = 0, votes = 0; i < candidate_count; i++ )
     {
-        votes++;
+        if (candidates[i].votes > voter_count/2)
+        {
+            printf(candidates[i].name)
+            return true;
+        }
     }
     return false;
 }
