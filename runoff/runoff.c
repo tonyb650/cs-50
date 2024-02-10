@@ -165,6 +165,10 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
+    for (int i = 0; i < candidates.length; i++ )
+    {
+        
+    }
     return false;
 }
 
