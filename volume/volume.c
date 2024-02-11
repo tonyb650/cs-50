@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     }
 
     float factor = atof(argv[3]);
-    printf("factor %f\n",factor);
+    printf("factor %f\n", factor);
 
     // TODO: Copy header from input file to output file
     // Syntax fread:
@@ -55,10 +55,10 @@ int main(int argc, char *argv[])
     {
         sample *= factor;
         fwrite(&sample, sample_size, 1, output);
-        counter ++;
+        counter++;
     }
 
-    printf("Total samples = %i\n ",counter);
+    printf("Total samples processed = %i\n ", counter);
 
     // Close files
     fclose(input);
