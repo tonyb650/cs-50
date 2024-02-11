@@ -8,7 +8,7 @@
 const int HEADER_SIZE = 44;
 
 typedef uint8_t BYTE;
-typedef uint16_t SAMPLE;
+typedef int16_t SAMPLE;
 
 int main(int argc, char *argv[])
 {
