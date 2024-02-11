@@ -50,6 +50,7 @@ int main(int argc, char *argv[])
 
     while (fread(&sample, sizeof(sample), 1, input) != 0)
     {
+        sample *= factor;
         fwrite(&sample, sizeof(sample), 1, output);
     }
 
