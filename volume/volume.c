@@ -40,12 +40,18 @@ int main(int argc, char *argv[])
     // Syntax fread:
     // size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
     // ... reads data from the given 'stream' into the array pointed to, by 'ptr'
-    
+
     BYTE header_data[HEADER_SIZE];
     fread(header_data, 1, HEADER_SIZE, input);
     fwrite(header_data, 1, HEADER_SIZE, output);
 
     // TODO: Read samples from input file and write updated data to output file
+    SAMPLE sample;
+
+    while (fread(&sample, sizeof(sample), 1, input) != 0)
+    {
+        fwrite(&sample, sizeof(sample), 1, output);
+    }
 
     // Close files
     fclose(input);
