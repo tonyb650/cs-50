@@ -47,11 +47,11 @@ int main(int argc, char *argv[])
 
     // TODO: Read samples from input file and write updated data to output file
     SAMPLE sample;
-
-    while (fread(&sample, sizeof(sample), 1, input) != 0)
+    int sample_size = sizeof(sample);
+    while (fread(&sample, sample_size, 1, input) != 0)
     {
         sample *= factor;
-        fwrite(&sample, sizeof(sample), 1, output);
+        fwrite(&sample, sample_size, 1, output);
     }
 
     // Close files
