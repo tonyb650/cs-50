@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
     }
 
     float factor = atof(argv[3]);
+    printf("factor %f\n",factor);
 
     // TODO: Copy header from input file to output file
     // Syntax fread:
@@ -48,11 +49,16 @@ int main(int argc, char *argv[])
     // TODO: Read samples from input file and write updated data to output file
     SAMPLE sample;
     int sample_size = sizeof(SAMPLE);
+    int counter = 0;
+
     while (fread(&sample, sample_size, 1, input) != 0)
     {
         sample *= factor;
         fwrite(&sample, sample_size, 1, output);
+        counter ++;
     }
+
+    printf("Total samples = %i\n ",counter);
 
     // Close files
     fclose(input);
