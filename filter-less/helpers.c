@@ -78,7 +78,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (boxRow+row >=0 && boxRow+row <=width && boxColumn+column >=0 && boxColumn+column <= height)
                     {
-                        greenTotal += copy[row+boxRow][column+boxColumn];
+                        greenTotal += copy[row+boxRow][column+boxColumn].rgbtGreen;
                         pixelCount++;
                     }
                 }
