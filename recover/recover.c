@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
         // fwrite(&sample, sample_size, 1, output);
         if (counter < 5)
         {
-            printf("first byte %i\n", block[0]);
+            printf("first byte %04x\n", block[0]);
         }
         counter++;
     }
