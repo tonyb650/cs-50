@@ -49,21 +49,22 @@ int main(int argc, char *argv[])
         */
         // sample *= factor;
         // fwrite(&sample, sample_size, 1, output);
-        if (counter == 2) //
+        if (counter < 50) //
         {
-            // printf("first byte %04x\n", block[0]);
-            // printf("first byte %04x\n", block[1]);
-            // printf("first byte %04x\n", block[2]);
-            // printf("first byte %04x\n", block[3]);
-            // printf("first byte %i\n", block[3]);
+            printf("at block %i\n",counter);
+            printf("1st byte %04x\n", block[0]);
+            printf("2nd byte %04x\n", block[1]);
+            printf("3rd byte %04x\n", block[2]);
+            // printf("4th byte %04x\n", block[3]);
+            printf("4th byte %i\n", block[3]);
             // Open output file
-            FILE *outptr = fopen(outfile, "w");
-            if (outptr == NULL)
-            {
-                fclose(inptr);
-                printf("Could not create %s.\n", outfile);
-                return 5;
-            }
+            // FILE *outptr = fopen(outfile, "w");
+            // if (outptr == NULL)
+            // {
+            //     fclose(inptr);
+            //     printf("Could not create %s.\n", outfile);
+            //     return 5;
+            // }
 
 
 
