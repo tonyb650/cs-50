@@ -73,6 +73,7 @@ int main(int argc, char *argv[])
         }
         if ( fileIsOpen) {
             // TODO write to file
+            fwrite(&block, block_size, 1, outptr);
         }
 
         blockCounter++;
