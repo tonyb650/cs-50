@@ -1,8 +1,9 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef uint8_t BYTE;
-typedef BYTE[512] BLOCK;
+typedef BYTE BLOCK[512];
 
 int main(int argc, char *argv[])
 {
@@ -35,7 +36,7 @@ int main(int argc, char *argv[])
     // fwrite(header_data, HEADER_SIZE, 1, output);
     BLOCK block;
     int block_size = sizeof(BLOCK);
-    // int counter = 0;
+    int counter = 0;
 
     /*
         While there's still data left to read from the memory card
@@ -43,23 +44,24 @@ int main(int argc, char *argv[])
 
     while (fread(&block, block_size, 1, inptr) != 0)
     {
-        sample *= factor;
-        fwrite(&sample, sample_size, 1, output);
+        // sample *= factor;
+        // fwrite(&sample, sample_size, 1, output);
         counter++;
     }
+    printf("Counter = %i\n",counter);
         // Create JPEGs from the data
 
 
 
 
-    // Open output file
-    FILE *outptr = fopen(outfile, "w");
-    if (outptr == NULL)
-    {
-        fclose(inptr);
-        printf("Could not create %s.\n", outfile);
-        return 5;
-    }
+    // // Open output file
+    // FILE *outptr = fopen(outfile, "w");
+    // if (outptr == NULL)
+    // {
+    //     fclose(inptr);
+    //     printf("Could not create %s.\n", outfile);
+    //     return 5;
+    // }
 
 
     fclose(inptr);
