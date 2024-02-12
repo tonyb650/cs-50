@@ -84,7 +84,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            printf("got here, row= %i column=%i\n", row, column);
+            printf("got here, row= %i column=%i greenTotal=%i pixelCount=%i\n", row, column, greenTotal, pixelCount);
             image[row][column].rgbtGreen = (int) greenTotal / pixelCount;
         }
     }
