@@ -46,9 +46,12 @@ int main(int argc, char *argv[])
     {
         // sample *= factor;
         // fwrite(&sample, sample_size, 1, output);
-        if (counter < 5)
+        if (counter == 2)
         {
             printf("first byte %04x\n", block[0]);
+            printf("first byte %04x\n", block[1]);
+            printf("first byte %04x\n", block[2]);
+            printf("first byte %04x\n", block[3]);
         }
         counter++;
     }
