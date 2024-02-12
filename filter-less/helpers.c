@@ -52,16 +52,20 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         {
             for (int column = 0; column < width; column++)
             {
-                BYTE greenTotal[9];
-                BYTE blueTotal[9];
-                BYTE redTotal[9];
+                int greenTotal = 0;
+                int pixelCount = 0;
                 for (int boxRow = -1; boxRow < 2; boxRow++)
                 {
                     for (int boxColumn = -1; boxColumn < 2; boxColumn++)
                     {
-                        if
+                        if (boxRow+row >=0 && boxRow+row <=width && boxColumn+column >=0 && boxColumn+column <= height)
+                        {
+                            greenTotal += copy[row+boxRow][column+boxColumn];
+                            pixelCount++;
+                        }
                     }
                 }
+                image[row][column].rgbtGreen = greenTotal/pixelCount;
             }
         }
 
