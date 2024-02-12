@@ -51,9 +51,12 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         {
             for (int column = 0; column < width; column++)
             {
-                for (int boxRow = 0; boxRow < 3; boxRow++)
+                BYTE greenTotal[9];
+                BYTE blueTotal[9];
+                BYTE redTotal[9];
+                for (int boxRow = -1; boxRow < 2; boxRow++)
                 {
-                    for (int boxColumn = 0; boxColumn < width; boxColumn++)
+                    for (int boxColumn = -1; boxColumn < 2; boxColumn++)
                     {
                         if
                     }
