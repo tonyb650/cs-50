@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     // fwrite(header_data, HEADER_SIZE, 1, output);
     BLOCK block;
     int block_size = sizeof(BLOCK);
-    int counter = 0;
+    int blockCounter = 0;
 
     /*
         While there's still data left to read from the memory card
@@ -51,13 +51,13 @@ int main(int argc, char *argv[])
         */
 
         // fwrite(&sample, sample_size, 1, output);
-        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224 && counter < 23 ) //
+        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224 && blockCounter < 23 ) //
         {
-            // if file is open then close file
+            // TODO: if file is open then close file
             //
-            // open new file
+            // TODO: open new file
             //
-            printf("at block %i\n",counter);
+            printf("at block %i\n",blockCounter);
             printf("1st byte %04x\n", block[0]);
             printf("2nd byte %04x\n", block[1]);
             printf("3rd byte %04x\n", block[2]);
@@ -76,11 +76,10 @@ int main(int argc, char *argv[])
 
         }
 
-        counter++;
+        blockCounter++;
     }
-    printf("Counter = %i\n",counter);
-
-
+    // TODO close output file
+    printf("Total blocks read = %i\n",blockCounter);
     fclose(inptr);
 
 
