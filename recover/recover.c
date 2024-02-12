@@ -63,11 +63,10 @@ int main(int argc, char *argv[])
 
             // TODO: open new file
 
-            FILE *outptr = fopen(outfile, "w");
+            FILE *outptr = fopen("000.jpg", "w");
             if (outptr == NULL)
             {
-                fclose(inptr);
-                printf("Could not create %s.\n", outfile);
+                printf("Could not create %s.\n", "000.jpg");
                 return 5;
             }
         }
@@ -79,6 +78,8 @@ int main(int argc, char *argv[])
         blockCounter++;
     }
     // TODO close output file
+
+
     printf("Total blocks read = %i\n",blockCounter);
     fclose(inptr);
 
