@@ -46,6 +46,10 @@ int main(int argc, char *argv[])
     {
         // sample *= factor;
         // fwrite(&sample, sample_size, 1, output);
+        if (counter < 5)
+        {
+            
+        }
         counter++;
     }
     printf("Counter = %i\n",counter);
