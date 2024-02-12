@@ -45,6 +45,10 @@ int main(int argc, char *argv[])
         counter++;
     }
         // Create JPEGs from the data
+
+
+
+        
     // Open output file
     FILE *outptr = fopen(outfile, "w");
     if (outptr == NULL)
@@ -55,6 +59,7 @@ int main(int argc, char *argv[])
     }
 
 
+    fclose(inptr);
 
 
 
