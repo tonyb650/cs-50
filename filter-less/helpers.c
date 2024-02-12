@@ -27,7 +27,6 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         {
             RGBTRIPLE pixel = image[row][column];
             int pixel_brightness = (pixel.rgbtBlue + pixel.rgbtGreen + pixel.rgbtRed)/3;
-
             image[row][column].rgbtBlue = pixel_brightness * 0.5;
             image[row][column].rgbtGreen = pixel_brightness;
             image[row][column].rgbtRed = pixel_brightness;
@@ -57,7 +56,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    printf("height= %i , width= %i\n", height, width);
     // start by making a full copy of image
     RGBTRIPLE copy[height][width];
     for (int row = 0; row < height; row++)
@@ -80,11 +78,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int boxColumn = -1; boxColumn < 2; boxColumn++)
                 {
-                    // if (column >400)
-                    // {
-                    //     printf("boxRow+row= %i\n",boxRow+row);
-                    //     printf("boxColumn+column= %i\n",boxColumn+column);
-                    // }
                     if (boxRow + row >=0 && boxRow + row <= height && boxColumn + column >=0 && boxColumn + column <= width)
                     {
                         greenTotal += copy[row+boxRow][column+boxColumn].rgbtGreen;
@@ -94,7 +87,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            // printf("got here, row= %i column=%i greenTotal=%i pixelCount=%i\n", row, column, greenTotal, pixelCount);
             image[row][column].rgbtGreen = (int) greenTotal / pixelCount;
             image[row][column].rgbtRed = (int) redTotal / pixelCount;
             image[row][column].rgbtBlue = (int) blueTotal / pixelCount;
