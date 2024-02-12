@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     int block_size = sizeof(BLOCK);
     int blockCounter = 0;
     bool writingToFile = false;
+    int *outptr;
 
     /*
         While there's still data left to read from the memory card
