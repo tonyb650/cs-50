@@ -14,12 +14,11 @@ int main(int argc, char *argv[])
     if (argc !=  2)
     {
         printf("Usage: ./recover infile\n");
-        return 3;
+        return 1;
     }
 
     // Remember filename
     char *infile = argv[1];
-    // printf("infile %s\n",infile);
 
     // Open the memory card
     FILE *inptr = fopen(infile, "r");
@@ -28,9 +27,6 @@ int main(int argc, char *argv[])
         printf("Could not open %s.\n", infile);
         return 4;
     }
-    // Syntax fread:
-    // size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
-    // ... reads data from the given 'stream' into the array pointed to, by 'ptr'
 
     BLOCK block;
     int block_size = sizeof(BLOCK);
