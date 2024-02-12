@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
         */
         // sample *= factor;
         // fwrite(&sample, sample_size, 1, output);
-        if (block[0]==255 && block[2] == 255) //
+        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224) //
         {
             printf("at block %i\n",counter);
             printf("1st byte %04x\n", block[0]);
