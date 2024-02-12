@@ -10,7 +10,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int column = 0; column < width; column++)
         {
             RGBTRIPLE pixel = image[row][column];
-            int pixel_brightness = round((pixel.rgbtBlue + pixel.rgbtGreen + pixel.rgbtRed)/3);
+            int pixel_brightness = round(((double)pixel.rgbtBlue + (double)pixel.rgbtGreen + (double)pixel.rgbtRed)/3);
             image[row][column].rgbtBlue = pixel_brightness;
             image[row][column].rgbtGreen = pixel_brightness;
             image[row][column].rgbtRed = pixel_brightness;
