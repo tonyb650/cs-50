@@ -42,15 +42,21 @@ int main(int argc, char *argv[])
         While there's still data left to read from the memory card
     */
 
+    // TODO: define first file name
+
     while (fread(&block, block_size, 1, inptr) != 0)
     {
         /*
             Create JPEGs from the data
         */
-        // sample *= factor;
+
         // fwrite(&sample, sample_size, 1, output);
-        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224) //
+        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224 && counter < 23 ) //
         {
+            // if file is open then close file
+            //
+            // open new file
+            //
             printf("at block %i\n",counter);
             printf("1st byte %04x\n", block[0]);
             printf("2nd byte %04x\n", block[1]);
