@@ -28,9 +28,27 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         {
             RGBTRIPLE pixel = image[row][column];
             // int pixel_brightness = round(((double) pixel.rgbtBlue + (double) pixel.rgbtGreen + (double) pixel.rgbtRed)/3);
-            image[row][column].rgbtRed = round(.393 * (double) pixel.rgbtRed + .769 * (double) pixel.rgbtGreen + .189 * (double) pixel.rgbtBlue);
-            image[row][column].rgbtGreen = round(.349 * (double) pixel.rgbtRed + .686 * (double) pixel.rgbtGreen + .168 * (double) pixel.rgbtBlue);
-            image[row][column].rgbtBlue = round(.272 * (double) pixel.rgbtRed + .534 * (double) pixel.rgbtGreen + .131 * (double) pixel.rgbtBlue);
+            int pixelRed =round(.393 * (double) pixel.rgbtRed + .769 * (double) pixel.rgbtGreen + .189 * (double) pixel.rgbtBlue);
+            int pixelGreen = round(.349 * (double) pixel.rgbtRed + .686 * (double) pixel.rgbtGreen + .168 * (double) pixel.rgbtBlue);
+            int pixelBlue = round(.272 * (double) pixel.rgbtRed + .534 * (double) pixel.rgbtGreen + .131 * (double) pixel.rgbtBlue);
+            if ( pixelRed <= 255 )
+            {
+                image[row][column].rgbtRed = pixeRed;
+            } else {
+                image[row][column].rgbtRed = 255;
+            }
+            if ( pixelGreen <= 255 )
+            {
+                image[row][column].rgbtGreen = pixeGreen;
+            } else {
+                image[row][column].rgbtGreen = 255;
+            }
+            if ( pixelBlue <= 255 )
+            {
+                image[row][column].rgbtBlue = pixelBlue;
+            } else {
+                image[row][column].rgbtBlue = 255;
+            }
          }
     }
     return;
