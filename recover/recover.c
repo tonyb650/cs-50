@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     bool writingToFile = false;
     FILE *outptr;
     int fileCount = 0;
-    char *fileName[7];
+    char *fileName[8];
 
     /*
         While there's still data left to read from the memory card
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
                 writingToFile = false;
             }
             // create new file name
-            filename = "00"+
+            snprintf(fileName, 7, "%d.jpg", fileCount);
 
             // Open new output file
             outptr = fopen("000.jpg", "w");
