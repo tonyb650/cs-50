@@ -8,10 +8,10 @@ typedef BYTE BLOCK[512];
 
 int main(int argc, char *argv[])
 {
-     // Accept a single command-line argument
+    // Accept a single command-line argument
 
     // Ensure proper usage
-    if (argc !=  2)
+    if (argc != 2)
     {
         printf("Usage: ./recover infile\n");
         return 1;
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
         /*
             Create JPEGs from the data
         */
-        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224) //
+        if (block[0] == 255 && block[1] == 216 && block[2] == 255 && block[3] >= 224) //
         {
 
             // If output file is open then close output file
@@ -79,11 +79,14 @@ int main(int argc, char *argv[])
             {
                 printf("Could not create %s.\n", fileName);
                 return 5;
-            } else {
+            }
+            else
+            {
                 writingToFile = true;
             }
         }
-        if ( writingToFile) {
+        if (writingToFile)
+        {
             // Write to open output file
             fwrite(&block, block_size, 1, outptr);
         }
@@ -93,5 +96,4 @@ int main(int argc, char *argv[])
     fclose(outptr);
     // Close input file
     fclose(inptr);
-
 }
