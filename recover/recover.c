@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef uint8_t BYTE;
+typedef BYTE[512] BLOCK;
+
 int main(int argc, char *argv[])
 {
      // Accept a single command-line argument
@@ -28,17 +31,17 @@ int main(int argc, char *argv[])
     // ... reads data from the given 'stream' into the array pointed to, by 'ptr'
     //
     // BYTE header_data[HEADER_SIZE];
-    // fread(header_data, 1, HEADER_SIZE, input);
-    // fwrite(header_data, 1, HEADER_SIZE, output);
-    // SAMPLE sample;
-    // int sample_size = sizeof(SAMPLE);
+    // fread(header_data, HEADER_SIZE, 1, input);
+    // fwrite(header_data, HEADER_SIZE, 1, output);
+    BLOCK block;
+    int block_size = sizeof(BLOCK);
     // int counter = 0;
 
     /*
         While there's still data left to read from the memory card
     */
 
-    while (fread(&sample, sample_size, 1, input) != 0)
+    while (fread(&block, block_size, 1, inptr) != 0)
     {
         sample *= factor;
         fwrite(&sample, sample_size, 1, output);
@@ -48,7 +51,7 @@ int main(int argc, char *argv[])
 
 
 
-        
+
     // Open output file
     FILE *outptr = fopen(outfile, "w");
     if (outptr == NULL)
