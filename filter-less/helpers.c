@@ -51,10 +51,11 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         {
             for (int column = 0; column < width; column++)
             {
-                copy[row][column] = image[row][column];
+                
+                image[row][column];
             }
         }
-        
+
         for (int column = 1; column < width-1; column++)
         {
             RGBTRIPLE pixel = image[row][column];
