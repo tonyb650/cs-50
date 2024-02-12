@@ -56,48 +56,35 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    // start by making a full copy of image
+    RGBTRIPLE copy[height][width];
     for (int row = 0; row < height; row++)
     {
-        RGBTRIPLE copy[height][width];
-        for (int row = 0; row < height; row++)
+        for (int column = 0; column < width; column++)
         {
-            for (int column = 0; column < width; column++)
-            {
-                copy[row][column] = image[row][column];
-            }
+            copy[row][column] = image[row][column];
         }
-        // copy is made, now alter original
-        for (int row = 0; row < height; row++)
+    }
+    // copy is made, now alter original
+    for (int row = 0; row < height; row++)
+    {
+        for (int column = 0; column < width; column++)
         {
-            for (int column = 0; column < width; column++)
+            int greenTotal = 0;
+            int pixelCount = 0;
+            for (int boxRow = -1; boxRow < 2; boxRow++)
             {
-                int greenTotal = 0;
-                int pixelCount = 0;
-                for (int boxRow = -1; boxRow < 2; boxRow++)
+                for (int boxColumn = -1; boxColumn < 2; boxColumn++)
                 {
-                    for (int boxColumn = -1; boxColumn < 2; boxColumn++)
+                    if (boxRow+row >=0 && boxRow+row <=width && boxColumn+column >=0 && boxColumn+column <= height)
                     {
-                        if (boxRow+row >=0 && boxRow+row <=width && boxColumn+column >=0 && boxColumn+column <= height)
-                        {
-                            greenTotal += copy[row+boxRow][column+boxColumn];
-                            pixelCount++;
-                        }
+                        greenTotal += copy[row+boxRow][column+boxColumn];
+                        pixelCount++;
                     }
                 }
-                image[row][column].rgbtGreen = greenTotal/pixelCount;
             }
+            image[row][column].rgbtGreen = greenTotal/pixelCount;
         }
-
-        for (int column = 1; column < width-1; column++)
-        {
-            RGBTRIPLE pixel = image[row][column];
-            // int pixel_brightness = (pixel.rgbtBlue + pixel.rgbtGreen + pixel.rgbtRed)/3;
-            image[row][column-1].rgbtBlue = (tempRow[column+1].rgbtBlue+tempRow[column].rgbtBlue+tempRow[column-1].rgbtBlue)/3;
-            image[row][column-1].rgbtGreen = (tempRow[column+1].rgbtGreen+tempRow[column].rgbtGreen+tempRow[column-1].rgbtGreen)/3;
-            image[row][column-1].rgbtRed = (tempRow[column+1].rgbtRed+tempRow[column].rgbtRed+tempRow[column-1].rgbtRed)/3;
-            // image[row][column].rgbtGreen = pixel_brightness;
-            // image[row][column].rgbtRed = pixel_brightness;
-         }
     }
     return;
 }
