@@ -23,24 +23,21 @@ int main(int argc, char *argv[])
         printf("Could not open %s.\n", infile);
         return 4;
     }
-    /*
-        While there's still data left to read from the memory card
-    */
     // Syntax fread:
     // size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
     // ... reads data from the given 'stream' into the array pointed to, by 'ptr'
-
-    BYTE header_data[HEADER_SIZE];
-    fread(header_data, 1, HEADER_SIZE, input);
-    fwrite(header_data, 1, HEADER_SIZE, output);
-
-    // TODO: Read samples from input file and write updated data to output file
-    SAMPLE sample;
-    int sample_size = sizeof(SAMPLE);
-    int counter = 0;
+    //
+    // BYTE header_data[HEADER_SIZE];
+    // fread(header_data, 1, HEADER_SIZE, input);
+    // fwrite(header_data, 1, HEADER_SIZE, output);
+    // SAMPLE sample;
+    // int sample_size = sizeof(SAMPLE);
+    // int counter = 0;
 
 
-
+    /*
+        While there's still data left to read from the memory card
+    */
 
     while (fread(&sample, sample_size, 1, input) != 0)
     {
