@@ -78,8 +78,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int boxColumn = -1; boxColumn < 2; boxColumn++)
                 {
-                    printf("boxRow+row= %i\n",boxRow+row);
-                    printf("boxColumn+column= %i\n",boxColumn+column);
+                    if (column >400)
+                    {
+                        printf("boxRow+row= %i\n",boxRow+row);
+                        printf("boxColumn+column= %i\n",boxColumn+column);
+                    }
                     if (boxRow+row >=0 && boxRow+row <=width && boxColumn+column >=0 && boxColumn+column <= height)
                     {
                         greenTotal += copy[row+boxRow][column+boxColumn].rgbtGreen;
