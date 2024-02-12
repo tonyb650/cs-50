@@ -94,5 +94,4 @@ int main(int argc, char *argv[])
     // Close input file
     fclose(inptr);
 
-    // printf("Total blocks read = %i\n",blockCounter);
 }
