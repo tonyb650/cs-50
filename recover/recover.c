@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     bool writingToFile = false;
     FILE *outptr;
     int fileCount = 0;
-    char *fileName[8];
+    char fileName[8];
 
     /*
         While there's still data left to read from the memory card
@@ -48,22 +48,34 @@ int main(int argc, char *argv[])
         /*
             Create JPEGs from the data
         */
-        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224 && fileCount < 10) //
+        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224) //
         {
-            // printf("at block %i\n",blockCounter);
-            // printf("1st byte %04x\n", block[0]);
-            // printf("2nd byte %04x\n", block[1]);
-            // printf("3rd byte %04x\n", block[2]);
-            // printf("4th byte %i\n", block[3]);
 
             // If output file is open then close output file
             if (writingToFile)
             {
                 fclose(outptr);
                 writingToFile = false;
+                fileCount++;
             }
             // create new file name
-            snprintf(fileName, 7, "00%d.jpg", fileCount);
+            if (fileCount < 10)
+            {
+                snprintf(fileName, 8, "00%d.jpg", fileCount);
+            }
+            else if (fileCount < 100)
+            {
+                snprintf(fileName, 8, "0%d.jpg", fileCount);
+            }
+            else if (fileCount < 1000)
+            {
+                snprintf(fileName, 8, "%d.jpg", fileCount);
+            }
+            else
+            {
+                printf("Too many files");
+                return 6;
+            }
 
             // Open new output file
             outptr = fopen(fileName, "w");
@@ -86,5 +98,5 @@ int main(int argc, char *argv[])
     // Close input file
     fclose(inptr);
 
-    printf("Total blocks read = %i\n",blockCounter);
+    // printf("Total blocks read = %i\n",blockCounter);
 }
