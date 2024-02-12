@@ -27,9 +27,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         {
             RGBTRIPLE pixel = image[row][column];
             int pixel_brightness = (pixel.rgbtBlue + pixel.rgbtGreen + pixel.rgbtRed)/3;
-            image[row][column].rgbtBlue = pixel_brightness;
-            image[row][column].rgbtGreen = pixel_brightness*;
-            image[row][column].rgbtRed = pixel_brightness;
+            image[row][column].rgbtBlue = pixel_brightness*.9;
+            image[row][column].rgbtGreen = pixel_brightness*1.1;
+            image[row][column].rgbtRed = pixel_brightness*1.1;
          }
     }
     return;
