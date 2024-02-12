@@ -73,25 +73,31 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int column = 0; column < width; column++)
         {
             int greenTotal = 0;
+            int redTotal = 0;
+            int blueTotal = 0;
             int pixelCount = 0;
             for (int boxRow = -1; boxRow < 2; boxRow++)
             {
                 for (int boxColumn = -1; boxColumn < 2; boxColumn++)
                 {
-                    if (column >400)
-                    {
-                        printf("boxRow+row= %i\n",boxRow+row);
-                        printf("boxColumn+column= %i\n",boxColumn+column);
-                    }
-                    if (boxRow+row >=0 && boxRow+row <=width && boxColumn+column >=0 && boxColumn+column <= height)
+                    // if (column >400)
+                    // {
+                    //     printf("boxRow+row= %i\n",boxRow+row);
+                    //     printf("boxColumn+column= %i\n",boxColumn+column);
+                    // }
+                    if (boxRow + row >=0 && boxRow + row <= height && boxColumn + column >=0 && boxColumn + column <= width)
                     {
                         greenTotal += copy[row+boxRow][column+boxColumn].rgbtGreen;
+                        redTotal += copy[row+boxRow][column+boxColumn].rgbtRed;
+                        blueTotal += copy[row+boxRow][column+boxColumn].rgbtBlue;
                         pixelCount++;
                     }
                 }
             }
-            printf("got here, row= %i column=%i greenTotal=%i pixelCount=%i\n", row, column, greenTotal, pixelCount);
+            // printf("got here, row= %i column=%i greenTotal=%i pixelCount=%i\n", row, column, greenTotal, pixelCount);
             image[row][column].rgbtGreen = (int) greenTotal / pixelCount;
+            image[row][column].rgbtRed = (int) redTotal / pixelCount;
+            image[row][column].rgbtBlue = (int) blueTotal / pixelCount;
         }
     }
     return;
