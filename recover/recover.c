@@ -44,33 +44,34 @@ int main(int argc, char *argv[])
 
     while (fread(&block, block_size, 1, inptr) != 0)
     {
+        /*
+            Create JPEGs from the data
+        */
         // sample *= factor;
         // fwrite(&sample, sample_size, 1, output);
-        if (counter == 2)
+        if (counter == 2) //
         {
-            printf("first byte %04x\n", block[0]);
-            printf("first byte %04x\n", block[1]);
-            printf("first byte %04x\n", block[2]);
-            printf("first byte %04x\n", block[3]);
-            printf("first byte %i\n", block[3]);
+            // printf("first byte %04x\n", block[0]);
+            // printf("first byte %04x\n", block[1]);
+            // printf("first byte %04x\n", block[2]);
+            // printf("first byte %04x\n", block[3]);
+            // printf("first byte %i\n", block[3]);
+            // Open output file
+            FILE *outptr = fopen(outfile, "w");
+            if (outptr == NULL)
+            {
+                fclose(inptr);
+                printf("Could not create %s.\n", outfile);
+                return 5;
+            }
+
+
+
         }
-        
+
         counter++;
     }
     printf("Counter = %i\n",counter);
-        // Create JPEGs from the data
-
-
-
-
-    // // Open output file
-    // FILE *outptr = fopen(outfile, "w");
-    // if (outptr == NULL)
-    // {
-    //     fclose(inptr);
-    //     printf("Could not create %s.\n", outfile);
-    //     return 5;
-    // }
 
 
     fclose(inptr);
