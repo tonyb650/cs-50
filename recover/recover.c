@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     bool writingToFile = false;
     FILE *outptr;
     int fileCount = 0;
-    char *fileName = "000.jpg";
+    char *fileName[7];
 
     /*
         While there's still data left to read from the memory card
