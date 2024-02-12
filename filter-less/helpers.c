@@ -10,11 +10,11 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int column = 0; column < width; column++)
         {
             RGBTRIPLE pixel = image[row][column];
-            int pixel_brightness = round(((double)pixel.rgbtBlue + (double)pixel.rgbtGreen + (double)pixel.rgbtRed)/3);
+            int pixel_brightness = round(((double) pixel.rgbtBlue + (double) pixel.rgbtGreen + (double) pixel.rgbtRed) / 3);
             image[row][column].rgbtBlue = pixel_brightness;
             image[row][column].rgbtGreen = pixel_brightness;
             image[row][column].rgbtRed = pixel_brightness;
-         }
+        }
     }
     return;
 }
@@ -28,28 +28,34 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         {
             RGBTRIPLE pixel = image[row][column];
             // int pixel_brightness = round(((double) pixel.rgbtBlue + (double) pixel.rgbtGreen + (double) pixel.rgbtRed)/3);
-            int pixelRed =round(.393 * (double) pixel.rgbtRed + .769 * (double) pixel.rgbtGreen + .189 * (double) pixel.rgbtBlue);
+            int pixelRed = round(.393 * (double) pixel.rgbtRed + .769 * (double) pixel.rgbtGreen + .189 * (double) pixel.rgbtBlue);
             int pixelGreen = round(.349 * (double) pixel.rgbtRed + .686 * (double) pixel.rgbtGreen + .168 * (double) pixel.rgbtBlue);
             int pixelBlue = round(.272 * (double) pixel.rgbtRed + .534 * (double) pixel.rgbtGreen + .131 * (double) pixel.rgbtBlue);
-            if ( pixelRed <= 255 )
+            if (pixelRed <= 255)
             {
                 image[row][column].rgbtRed = pixelRed;
-            } else {
+            }
+            else
+            {
                 image[row][column].rgbtRed = 255;
             }
-            if ( pixelGreen <= 255 )
+            if (pixelGreen <= 255)
             {
                 image[row][column].rgbtGreen = pixelGreen;
-            } else {
+            }
+            else
+            {
                 image[row][column].rgbtGreen = 255;
             }
-            if ( pixelBlue <= 255 )
+            if (pixelBlue <= 255)
             {
                 image[row][column].rgbtBlue = pixelBlue;
-            } else {
+            }
+            else
+            {
                 image[row][column].rgbtBlue = 255;
             }
-         }
+        }
     }
     return;
 }
@@ -63,11 +69,11 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         for (int column = 0; column < width; column++)
         {
             tempRow[column] = image[row][column];
-         }
+        }
         for (int column = 0; column < width; column++)
         {
-            image[row][column] = tempRow[width-column-1];
-         }
+            image[row][column] = tempRow[width - column - 1];
+        }
     }
     return;
 }
@@ -97,11 +103,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int boxColumn = -1; boxColumn < 2; boxColumn++)
                 {
-                    if (boxRow + row >=0 && boxRow + row < height && boxColumn + column >=0 && boxColumn + column < width)
+                    if (boxRow + row >= 0 && boxRow + row < height && boxColumn + column >= 0 && boxColumn + column < width)
                     {
-                        greenTotal += copy[row+boxRow][column+boxColumn].rgbtGreen;
-                        redTotal += copy[row+boxRow][column+boxColumn].rgbtRed;
-                        blueTotal += copy[row+boxRow][column+boxColumn].rgbtBlue;
+                        greenTotal += copy[row + boxRow][column + boxColumn].rgbtGreen;
+                        redTotal += copy[row + boxRow][column + boxColumn].rgbtRed;
+                        blueTotal += copy[row + boxRow][column + boxColumn].rgbtBlue;
                         pixelCount++;
                     }
                 }
