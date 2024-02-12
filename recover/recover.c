@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
     int blockCounter = 0;
     bool writingToFile = false;
     FILE *outptr;
+    int fileCount = 0;
+    char *fileName = "000.jpg";
 
     /*
         While there's still data left to read from the memory card
@@ -63,6 +65,8 @@ int main(int argc, char *argv[])
                 fclose(outptr);
                 writingToFile = false;
             }
+            // create new file name
+            filename = "00"+
 
             // Open new output file
             outptr = fopen("000.jpg", "w");
