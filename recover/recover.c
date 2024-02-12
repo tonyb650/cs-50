@@ -54,6 +54,7 @@ int main(int argc, char *argv[])
             printf("first byte %04x\n", block[3]);
             printf("first byte %i\n", block[3]);
         }
+        
         counter++;
     }
     printf("Counter = %i\n",counter);
