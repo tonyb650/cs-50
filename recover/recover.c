@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     int block_size = sizeof(BLOCK);
     int blockCounter = 0;
     bool writingToFile = false;
-    int *outptr;
+    FILE *outptr;
 
     /*
         While there's still data left to read from the memory card
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
             }
 
             // Open new output file
-            FILE *outptr = fopen("000.jpg", "w");
+            outptr = fopen("000.jpg", "w");
             if (outptr == NULL)
             {
                 printf("Could not create %s.\n", "000.jpg");
