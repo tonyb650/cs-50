@@ -1,4 +1,5 @@
 #include "helpers.h"
+#include <stdio.h>
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -83,7 +84,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            printf("got here");
+            printf("got here, row= %i column=%i\n", row, column);
             image[row][column].rgbtGreen = (int) greenTotal / pixelCount;
         }
     }
