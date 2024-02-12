@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
     // int sample_size = sizeof(SAMPLE);
     // int counter = 0;
 
-
     /*
         While there's still data left to read from the memory card
     */
