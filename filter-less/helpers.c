@@ -47,10 +47,12 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         for (int column = 1; column < width-1; column++)
         {
             RGBTRIPLE pixel = image[row][column];
-            int pixel_brightness = (pixel.rgbtBlue + pixel.rgbtGreen + pixel.rgbtRed)/3;
-            image[row][column].rgbtBlue = pixel_brightness * 0.5;
-            image[row][column].rgbtGreen = pixel_brightness;
-            image[row][column].rgbtRed = pixel_brightness;
+            // int pixel_brightness = (pixel.rgbtBlue + pixel.rgbtGreen + pixel.rgbtRed)/3;
+            image[row][column].rgbtBlue = (tempRow[column].rgbtBlue+tempRow[column].rgbtBlue+tempRow[column].rgbtBlue)/3;
+            image[row][column].rgbtGreen = (tempRow[column].rgbtGreen+tempRow[column].rgbtGreen+tempRow[column].rgbtGreen)/3;
+            image[row][column].rgbtRed = (tempRow[column].rgbtRed+tempRow[column].rgbtRed+tempRow[column].rgbtRed)/3;
+            // image[row][column].rgbtGreen = pixel_brightness;
+            // image[row][column].rgbtRed = pixel_brightness;
          }
     }
     return;
