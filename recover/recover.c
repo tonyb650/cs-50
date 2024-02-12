@@ -43,15 +43,12 @@ int main(int argc, char *argv[])
     /*
         While there's still data left to read from the memory card
     */
-
-    // TODO: define first file name
-
     while (fread(&block, block_size, 1, inptr) != 0)
     {
         /*
             Create JPEGs from the data
         */
-        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224 && blockCounter < 23 ) //
+        if (block[0]==255 && block[1] == 216 && block[2] == 255 && block[3] >= 224 && fileCount < 10) //
         {
             // printf("at block %i\n",blockCounter);
             // printf("1st byte %04x\n", block[0]);
@@ -66,13 +63,13 @@ int main(int argc, char *argv[])
                 writingToFile = false;
             }
             // create new file name
-            snprintf(fileName, 7, "%d.jpg", fileCount);
+            snprintf(fileName, 7, "00%d.jpg", fileCount);
 
             // Open new output file
-            outptr = fopen("000.jpg", "w");
+            outptr = fopen(fileName, "w");
             if (outptr == NULL)
             {
-                printf("Could not create %s.\n", "000.jpg");
+                printf("Could not create %s.\n", fileName);
                 return 5;
             } else {
                 writingToFile = true;
