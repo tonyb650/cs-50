@@ -26,7 +26,6 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         {
             RGBTRIPLE pixel = image[row][column];
             int pixel_brightness = (pixel.rgbtBlue + pixel.rgbtGreen + pixel.rgbtRed)/3;
-
             image[row][column].rgbtBlue = pixel_brightness * 0.5;
             image[row][column].rgbtGreen = pixel_brightness;
             image[row][column].rgbtRed = pixel_brightness;
@@ -45,9 +44,13 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         {
             tempRow[column] = image[row][column];
          }
-        for (int column = 0; column < width; column++)
+        for (int column = 1; column < width-1; column++)
         {
-            image[row][column] = tempRow[width-column];
+            RGBTRIPLE pixel = image[row][column];
+            int pixel_brightness = (pixel.rgbtBlue + pixel.rgbtGreen + pixel.rgbtRed)/3;
+            image[row][column].rgbtBlue = pixel_brightness * 0.5;
+            image[row][column].rgbtGreen = pixel_brightness;
+            image[row][column].rgbtRed = pixel_brightness;
          }
     }
     return;
