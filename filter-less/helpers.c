@@ -47,6 +47,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
                 copy[row][column] = image[row][column];
             }
         }
+        // copy is made, now alter original
         for (int row = 0; row < height; row++)
         {
             for (int column = 0; column < width; column++)
