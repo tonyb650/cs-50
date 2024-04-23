@@ -1,5 +1,5 @@
 // Implements a dictionary's functionality
-
+#include <stdio.h>
 #include <ctype.h>
 #include <stdbool.h>
 
@@ -36,12 +36,17 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    // FILE *dictFile = fopen(dictionary, "r");
-    // if (dictFile == NULL)
-    // {
-    //     printf("Could not open %s.\n", dictionary);
-    //     return 1;
-    // }
+    FILE *dictFile = fopen(dictionary, "r");
+    if (dictFile == NULL)
+    {
+        printf("Could not open %s.\n", dictionary);
+        return false;
+    }
+    else
+    {
+        printf("Opened %s.\n", dictionary);
+        return false;
+    }
     return false;
 }
 
