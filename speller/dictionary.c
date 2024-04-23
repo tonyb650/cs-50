@@ -40,12 +40,14 @@ bool load(const char *dictionary)
     if (dictFile == NULL)
     {
         printf("Could not open %s.\n", dictionary);
-        return false;
     }
     else
     {
         printf("Opened %s.\n", dictionary);
-        return false;
+    }
+    while (fread(&c, sizeof(char), 1, dictFile))
+    {
+
     }
     return false;
 }
