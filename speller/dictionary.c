@@ -58,11 +58,13 @@ bool load(const char *dictionary)
         {
             word[index] = 0;
             printf("Word =  %s.\n", word);
-            while (index > 0)
-            {
-                word[index] = 0;
-                index--;
-            }
+            // while (index > 0)
+            // {
+            //     word[index] = 0;
+            //     index--;
+            // }
+            word[0] = 0;
+            index = -1
         }
         index++;
     }
