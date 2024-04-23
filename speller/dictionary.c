@@ -45,9 +45,26 @@ bool load(const char *dictionary)
     {
         printf("Opened %s.\n", dictionary);
     }
+    int index = 0;
+    char word[LENGTH + 1];
+    char c;
     while (fread(&c, sizeof(char), 1, dictFile))
     {
-
+        if (c != '\n')
+        {
+            word[index] = c;
+        }
+        else
+        {
+            word[index] = 0;
+            printf("Word =  %s.\n", word);
+            while (index > 0)
+            {
+                word[index] = 0;
+                index--;
+            }
+        }
+        index++;
     }
     return false;
 }
