@@ -27,7 +27,12 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    
+    unsigned int bucket = hash(word);
+    printf("Bucket =  %i.\n", bucket);
+    node *n = table[bucket]
+    while(n.next != NULL){
+
+    }
     return false;
 }
 
