@@ -43,13 +43,9 @@ bool load(const char *dictionary)
         printf("Could not open %s.\n", dictionary);
         return false;
     }
-    int index = 0;
     char word[LENGTH + 1];
-    //char c;
-    //while (fread(&c, sizeof(char), 1, dictFile))
     while(fscanf(dictFile, "%s", word)!=EOF)
     {
-        // word[index] = 0;
         printf("Word =  %s.\n", word);
         unsigned int bucket = hash(word);
         printf("Bucket =  %i.\n", bucket);
