@@ -41,34 +41,28 @@ bool load(const char *dictionary)
         printf("Could not open %s.\n", dictionary);
         return false
     }
-    int index = 0;
+    // int index = 0;
     char word[LENGTH + 1];
-    char c;
-    while (fread(&c, sizeof(char), 1, dictFile))
-    while (fscanf(dictFile, "%s", word))
-    {
-        if (c != '\n')
-        {
-            word[index] = c;
-            index++;
-        }
-        else
-        {
-            word[index] = 0;
-            printf("Word =  %s.\n", word);
-            unsigned int bucket = hash(word);
-            printf("Bucket =  %i.\n", bucket);
-            // create new node and insert in linked list
-            node *n = malloc(sizeof(node));
-            strcpy(n->word, word) //strcpy means "string copy", it copies a string from a source into a destination
-            n->next = NULL;
-            n->next = table[bucket];
-            table[bucket] = n;
-            word[0] = 0;
-            index = 0;
-        }
+    //char c;
+    //while (fread(&c, sizeof(char), 1, dictFile))
+    fscanf(dictFile, "%s", word)
+    do {
+        // word[index] = 0;
+        printf("Word =  %s.\n", word);
+        unsigned int bucket = hash(word);
+        printf("Bucket =  %i.\n", bucket);
+        // create new node and insert in linked list
+        node *n = malloc(sizeof(node));
+        strcpy(n->word, word) //strcpy means "string copy", it copies a string from a source into a destination
+        n->next = NULL;
+        n->next = table[bucket];
+        table[bucket] = n;
+        // word[0] = 0;
+        // index = 0;
+
+        fscanf(dictFile, "%s", word)
     }
-    return false;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
