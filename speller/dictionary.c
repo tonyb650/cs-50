@@ -51,6 +51,9 @@ bool load(const char *dictionary)
         printf("Bucket =  %i.\n", bucket);
         // create new node and insert in linked list
         node *n = malloc(sizeof(node));
+        if(n==NULL){
+            return false;
+        }
         strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
         n->next = NULL;
         //n->next = table[bucket];
