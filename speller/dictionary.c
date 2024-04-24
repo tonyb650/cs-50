@@ -39,13 +39,13 @@ bool load(const char *dictionary)
     if (dictFile == NULL)
     {
         printf("Could not open %s.\n", dictionary);
-        return false
+        return false;
     }
     // int index = 0;
     char word[LENGTH + 1];
     //char c;
     //while (fread(&c, sizeof(char), 1, dictFile))
-    fscanf(dictFile, "%s", word)
+    fscanf(dictFile, "%s", word);
     do {
         // word[index] = 0;
         printf("Word =  %s.\n", word);
@@ -60,7 +60,7 @@ bool load(const char *dictionary)
         // word[0] = 0;
         // index = 0;
 
-        fscanf(dictFile, "%s", word)
+        fscanf(dictFile, "%s", word);
     }
     while (strcmp(word,"EOF")!=0);
     return false;
