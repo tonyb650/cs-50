@@ -67,6 +67,7 @@ bool load(const char *dictionary)
     }
     // while (index==0);
     //while (strcmp(word,"EOF")!=0);
+    fclose(dictFile)
     return true;
 }
 
