@@ -60,7 +60,11 @@ bool load(const char *dictionary)
             printf("Word =  %s.\n", word);
             unsigned int bucket = hash(word);
             printf("Bucket =  %i.\n", bucket);
-            table[bucket]
+            // create new node and insert in linked list
+            node *n = malloc(sizeof(node));
+            n.word = word;
+            n.next = table[bucket];
+            table[bucket] = n;
             word[0] = 0;
             index = 0;
         }
