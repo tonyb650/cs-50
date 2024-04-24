@@ -45,8 +45,8 @@ bool load(const char *dictionary)
     char word[LENGTH + 1];
     //char c;
     //while (fread(&c, sizeof(char), 1, dictFile))
-    while(fscanf(dictFile, "%s", word);
-    do {
+    while(strcmp(fscanf(dictFile, "%s", word),"EOF")!=0);
+    {
         // word[index] = 0;
         printf("Word =  %s.\n", word);
         unsigned int bucket = hash(word);
@@ -58,14 +58,14 @@ bool load(const char *dictionary)
         //n->next = table[bucket];
         // table[bucket] = n;
         // word[0] = 0;
-        index = 1;
+        // index = 1;
 
-        fscanf(dictFile, "%s", word);
-        printf("Word =  %s.\n", word);
-        fscanf(dictFile, "%s", word);
-        printf("Word =  %s.\n", word);
+        // fscanf(dictFile, "%s", word);
+        // printf("Word =  %s.\n", word);
+        // fscanf(dictFile, "%s", word);
+        // printf("Word =  %s.\n", word);
     }
-    while (index==0);
+    // while (index==0);
     //while (strcmp(word,"EOF")!=0);
     return true;
 }
