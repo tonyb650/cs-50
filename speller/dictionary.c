@@ -1,5 +1,6 @@
 // Implements a dictionary's functionality
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
 
@@ -53,20 +54,12 @@ bool load(const char *dictionary)
         printf("Bucket =  %i.\n", bucket);
         // create new node and insert in linked list
         node *n = malloc(sizeof(node));
-        //strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
+        strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
         //n->next = NULL;
         //n->next = table[bucket];
         // table[bucket] = n;
-        // word[0] = 0;
-        // index = 1;
 
-        // fscanf(dictFile, "%s", word);
-        // printf("Word =  %s.\n", word);
-        // fscanf(dictFile, "%s", word);
-        // printf("Word =  %s.\n", word);
     }
-    // while (index==0);
-    //while (strcmp(word,"EOF")!=0);
     fclose(dictFile);
     return true;
 }
