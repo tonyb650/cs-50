@@ -32,6 +32,7 @@ bool check(const char *word)
     printf("Bucket =  %i.\n", bucket);
     node *n = table[bucket];
     while(n && n->next != NULL){
+        printf("Checking word: %s against dictionary word: %s.\n", word, n->word);
         if(strcasecmp(n->word,word)==0){
             return true;
         }
