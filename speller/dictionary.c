@@ -53,7 +53,7 @@ bool load(const char *dictionary)
         printf("Bucket =  %i.\n", bucket);
         // create new node and insert in linked list
         node *n = malloc(sizeof(node));
-        strcpy(n->word, word) //strcpy means "string copy", it copies a string from a source into a destination
+        strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
         n->next = NULL;
         n->next = table[bucket];
         table[bucket] = n;
@@ -62,7 +62,8 @@ bool load(const char *dictionary)
 
         fscanf(dictFile, "%s", word)
     }
-    return true;
+    while (strcmp(word,"EOF")!=0);
+    return false;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
