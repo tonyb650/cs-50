@@ -39,10 +39,7 @@ bool load(const char *dictionary)
     if (dictFile == NULL)
     {
         printf("Could not open %s.\n", dictionary);
-    }
-    else
-    {
-        printf("Opened %s.\n", dictionary);
+        return false
     }
     int index = 0;
     char word[LENGTH + 1];
