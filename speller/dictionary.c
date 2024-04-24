@@ -17,6 +17,9 @@ typedef struct node
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
 
+// Store size of dictionary
+int dictWordCount = 0;
+
 // Hash table
 node *table[N];
 
@@ -46,6 +49,7 @@ bool load(const char *dictionary)
     char word[LENGTH + 1];
     while(fscanf(dictFile, "%s", word)!=EOF)
     {
+        dictWordCount++;
         printf("Word =  %s.\n", word);
         unsigned int bucket = hash(word);
         printf("Bucket =  %i.\n", bucket);
@@ -65,7 +69,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
+    return dictWordCount;
     return 0;
 }
 
