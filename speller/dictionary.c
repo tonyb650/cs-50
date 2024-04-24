@@ -45,14 +45,14 @@ bool load(const char *dictionary)
     char word[LENGTH + 1];
     //char c;
     //while (fread(&c, sizeof(char), 1, dictFile))
-    while(strcmp(fscanf(dictFile, "%s", word),"EOF")!=0);
+    while(fscanf(dictFile, "%s", word)!=EOF)
     {
         // word[index] = 0;
         printf("Word =  %s.\n", word);
         unsigned int bucket = hash(word);
         printf("Bucket =  %i.\n", bucket);
         // create new node and insert in linked list
-        //node *n = malloc(sizeof(node));
+        node *n = malloc(sizeof(node));
         //strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
         //n->next = NULL;
         //n->next = table[bucket];
@@ -67,7 +67,7 @@ bool load(const char *dictionary)
     }
     // while (index==0);
     //while (strcmp(word,"EOF")!=0);
-    fclose(dictFile)
+    fclose(dictFile);
     return true;
 }
 
