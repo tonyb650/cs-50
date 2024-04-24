@@ -55,9 +55,9 @@ bool load(const char *dictionary)
             return false;
         }
         strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
-        n->next = NULL;
-        //n->next = table[bucket];
-        // table[bucket] = n;
+        // n->next = NULL;
+        n->next = table[bucket];
+        table[bucket] = n;
 
     }
     fclose(dictFile);
