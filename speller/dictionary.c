@@ -41,7 +41,7 @@ bool load(const char *dictionary)
         printf("Could not open %s.\n", dictionary);
         return false;
     }
-    // int index = 0;
+    int index = 0;
     char word[LENGTH + 1];
     //char c;
     //while (fread(&c, sizeof(char), 1, dictFile))
@@ -58,12 +58,13 @@ bool load(const char *dictionary)
         //n->next = table[bucket];
         // table[bucket] = n;
         // word[0] = 0;
-        // index = 0;
+        index = 1;
 
         fscanf(dictFile, "%s", word);
     }
-    while (strcmp(word,"EOF")!=0);
-    return false;
+    while (index==0);
+    //while (strcmp(word,"EOF")!=0);
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
