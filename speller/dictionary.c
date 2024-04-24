@@ -52,11 +52,11 @@ bool load(const char *dictionary)
         unsigned int bucket = hash(word);
         printf("Bucket =  %i.\n", bucket);
         // create new node and insert in linked list
-        node *n = malloc(sizeof(node));
-        strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
-        n->next = NULL;
-        n->next = table[bucket];
-        table[bucket] = n;
+        //node *n = malloc(sizeof(node));
+        //strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
+        //n->next = NULL;
+        //n->next = table[bucket];
+        // table[bucket] = n;
         // word[0] = 0;
         // index = 0;
 
