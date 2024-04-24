@@ -45,7 +45,7 @@ bool load(const char *dictionary)
     char word[LENGTH + 1];
     //char c;
     //while (fread(&c, sizeof(char), 1, dictFile))
-    fscanf(dictFile, "%s", word);
+    while(fscanf(dictFile, "%s", word);
     do {
         // word[index] = 0;
         printf("Word =  %s.\n", word);
