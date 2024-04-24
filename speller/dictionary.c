@@ -61,6 +61,9 @@ bool load(const char *dictionary)
         index = 1;
 
         fscanf(dictFile, "%s", word);
+        printf("Word =  %s.\n", word);
+        fscanf(dictFile, "%s", word);
+        printf("Word =  %s.\n", word);
     }
     while (index==0);
     //while (strcmp(word,"EOF")!=0);
