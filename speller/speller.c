@@ -52,10 +52,10 @@ int main(int argc, char *argv[])
 
 
     // Determine dictionary's size
-    getrusage(RUSAGE_SELF, &before);
-    unsigned int n = size();
-    printf("WORDS IN DICTIONARY:  %d\n", n);
-    getrusage(RUSAGE_SELF, &after);
+    // getrusage(RUSAGE_SELF, &before);
+    // unsigned int n = size();
+    // printf("WORDS IN DICTIONARY:  %d\n", n);
+    // getrusage(RUSAGE_SELF, &after);
 
 
 
