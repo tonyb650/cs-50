@@ -58,7 +58,8 @@ bool load(const char *dictionary)
         {
             word[index] = 0;
             printf("Word =  %s.\n", word);
-            
+            unsigned int bucket = hash(word);
+            printf("Bucket =  %i.\n", bucket);
             word[0] = 0;
             index = 0;
         }
