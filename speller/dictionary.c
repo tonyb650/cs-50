@@ -56,6 +56,7 @@ bool load(const char *dictionary)
         // create new node and insert in linked list
         node *n = malloc(sizeof(node));
         if(n==NULL){
+            printf("Memory not allocated \n");
             return false;
         }
         strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
@@ -77,6 +78,6 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    
+
     return false;
 }
