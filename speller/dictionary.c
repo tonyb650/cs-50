@@ -45,7 +45,7 @@ bool load(const char *dictionary)
     char word[LENGTH + 1];
     char c;
     while (fread(&c, sizeof(char), 1, dictFile))
-    while (fscanf())
+    while (fscanf(dictFile, "%s", word))
     {
         if (c != '\n')
         {
