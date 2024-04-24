@@ -47,6 +47,23 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+
+
+
+
+    // Determine dictionary's size
+    getrusage(RUSAGE_SELF, &before);
+    unsigned int n = size();
+    printf("WORDS IN DICTIONARY:  %d\n", n);
+    getrusage(RUSAGE_SELF, &after);
+
+
+
+
+
+
+
+
     // Calculate time to load dictionary
     time_load = calculate(&before, &after);
 
