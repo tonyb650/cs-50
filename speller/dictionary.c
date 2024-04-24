@@ -31,7 +31,7 @@ bool check(const char *word)
     unsigned int bucket = hash(word);
     printf("Bucket =  %i.\n", bucket);
     node *n = table[bucket];
-    while(n->next != NULL){
+    while(n && n->next != NULL){
         if(strcasecmp(n->word,word)==0){
             return true;
         }
