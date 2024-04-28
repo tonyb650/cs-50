@@ -89,6 +89,20 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    // loop through buckets
+
+    for (0 to N)
+    {
+        n = bucket[i]
+        while ( n != null)
+        {
+            node *next = n.next;
+            free(n);
+            n = next;
+        }
+    }
+
+
 
     return false;
 }
