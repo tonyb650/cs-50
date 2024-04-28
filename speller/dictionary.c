@@ -15,7 +15,7 @@ typedef struct node
     struct node *next;
 } node;
 
-// TODO: Choose number of buckets in hash table
+// Choose number of buckets in hash table
 const unsigned int N = 500;
 
 // Store size of dictionary
@@ -27,27 +27,32 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    // get the hash value for the word in the text
     unsigned int bucket = hash(word);
-    // printf("Bucket =  %i.\n", bucket);
+    // get the pointer to the 'head' of that bucket
     node *n = table[bucket];
+    // loop through the linked list of words a that bucket
     while(n != NULL){
-        // printf("Checking word: %s against dictionary word: %s.\n", word, n->word);
+        // compare the word in the linked list (n->word) with the word from the text (word)
         if(strcasecmp(n->word,word)==0){
+            // the word IS in the linked list, therefore return true
             return true;
         }
         n = n->next;
     }
+    // we've got to the end of the linked list and didn't find the word
     return false;
 }
 
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Improve this hash function
+    // start with a hash value of 0
     int hashVal = 0;
+    // loop through each character in the word, starting with the last
     for (int i = strlen(word); i >= 0; i--)
     {
+        // multiply the 
         hashVal = hashVal + (toupper(word[i])-'A')*i;
     }
     return hashVal % N;
