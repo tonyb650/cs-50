@@ -54,8 +54,8 @@ unsigned int hash(const char *word)
     // loop through each character in the word, starting with the last
     for (int i = strlen(word); i >= 0; i--)
     {
-        // multiply the letter value(0-26) by it's position (0-strlen(word)).
-        // Then add result to hashVal
+        // multiply the letter value(0-26) by it's position (0-strlen(word)). Then add result to
+        // hashVal
         hashVal = hashVal + (toupper(word[i]) - 'A') * i;
     }
     // final hash = hashVal mod N (total number of buckets)
