@@ -85,8 +85,9 @@ bool load(const char *dictionary)
         }
         // copy the word from the file into the new node.word location
         strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
-        // move the pointer from the previous 'head'
+        // set the 'node.next' pointer on the newly created node to point to the previous 'head' node
         n->next = table[bucket];
+        // set the pointer in the hash table to point to the newly created node
         table[bucket] = n;
     }
     fclose(dictFile);
@@ -97,20 +98,24 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     return dictWordCount;
-    return 0;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // loop through buckets, then through nodes
+    // loop through buckets in hash table
     for (int bucket = 0; bucket < N; bucket++)
     {
+        // 
         node *n = table[bucket];
+        // loop through all the nodes in the linked list at this 'bucket'
         while ( n != NULL)
         {
+            // set a temp node so we know where to go next
             node *nextNode = n->next;
+            // free the memory
             free(n);
+            // move to the temp node
             n = nextNode;
         }
     }
