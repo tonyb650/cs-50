@@ -94,9 +94,9 @@ bool unload(void)
         node *n = table[bucket];
         while ( n != NULL)
         {
-            node *next = n.next;
+            node *nextNode = n->next;
             free(n);
-            n = next;
+            n = nextNode;
         }
     }
     return true;
