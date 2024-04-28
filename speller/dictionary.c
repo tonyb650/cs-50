@@ -88,13 +88,13 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
+
     // loop through buckets
 
-    for (bucket 0 to N)
+    for (int bucket = 0; bucket < N; bucket++)
     {
-        n = table[bucket]
-        while ( n != null)
+        node *n = table[bucket];
+        while ( n != NULL)
         {
             node *next = n.next;
             free(n);
