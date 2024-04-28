@@ -1,10 +1,10 @@
 // Implements a dictionary's functionality
+#include <ctype.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-#include <ctype.h>
-#include <stdbool.h>
 
 #include "dictionary.h"
 
@@ -32,9 +32,11 @@ bool check(const char *word)
     // get the pointer to the 'head' of that bucket
     node *n = table[bucket];
     // loop through the linked list of words a that bucket
-    while(n != NULL){
+    while (n != NULL)
+    {
         // compare the word in the linked list (n->word) with the word from the text (word)
-        if(strcasecmp(n->word,word)==0){
+        if (strcasecmp(n->word, word) == 0)
+        {
             // the word IS in the linked list, therefore return true
             return true;
         }
@@ -52,8 +54,9 @@ unsigned int hash(const char *word)
     // loop through each character in the word, starting with the last
     for (int i = strlen(word); i >= 0; i--)
     {
-        // multiply the letter value(0-26) by it's position (0-strlen(word)). Then add result to hasVal
-        hashVal = hashVal + (toupper(word[i])-'A')*i;
+        // multiply the letter value(0-26) by it's position (0-strlen(word)).
+        // Then add result to hashVal
+        hashVal = hashVal + (toupper(word[i]) - 'A') * i;
     }
     // final hash = hashVal mod N (total number of buckets)
     return hashVal % N;
@@ -71,7 +74,7 @@ bool load(const char *dictionary)
     // initialize string 'word' to max possible word length
     char word[LENGTH + 1];
     // fscanf loads one word at a time from the file opened above, until "End Of File"
-    while(fscanf(dictFile, "%s", word)!=EOF)
+    while (fscanf(dictFile, "%s", word) != EOF)
     {
         // keep track of the size of our dictionary as we add to it
         dictWordCount++;
@@ -79,13 +82,16 @@ bool load(const char *dictionary)
         unsigned int bucket = hash(word);
         // create new node and insert in linked list
         node *n = malloc(sizeof(node));
-        if(n==NULL){
+        if (n == NULL)
+        {
             printf("Memory not allocated \n");
             return false;
         }
         // copy the word from the file into the new node.word location
-        strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
-        // set the 'node.next' pointer on the newly created node to point to the previous 'head' node
+        strcpy(n->word, word); // strcpy means "string copy", it copies a string from a source into
+                               // a destination
+        // set the 'node.next' pointer on the newly created node to point to the previous 'head'
+        // node
         n->next = table[bucket];
         // set the pointer in the hash table to point to the newly created node
         table[bucket] = n;
@@ -109,7 +115,7 @@ bool unload(void)
         // retrieve the pointer to the head node from the hash table for this 'bucket'
         node *n = table[bucket];
         // loop through all the nodes in the linked list at this 'bucket'
-        while ( n != NULL)
+        while (n != NULL)
         {
             // set a temp node so we know where to go next
             node *nextNode = n->next;
