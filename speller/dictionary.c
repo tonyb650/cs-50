@@ -98,9 +98,6 @@ bool unload(void)
         {
             node *next = n.next;
             free(n);
-            if () {
-                return false
-            }
             n = next;
         }
     }
