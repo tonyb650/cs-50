@@ -61,9 +61,9 @@ bool load(const char *dictionary)
     while(fscanf(dictFile, "%s", word)!=EOF)
     {
         dictWordCount++;
-        printf("Word =  %s.\n", word);
+        // printf("Word =  %s.\n", word);
         unsigned int bucket = hash(word);
-        printf("Bucket =  %i.\n", bucket);
+        // printf("Bucket =  %i.\n", bucket);
         // create new node and insert in linked list
         node *n = malloc(sizeof(node));
         if(n==NULL){
