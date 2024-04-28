@@ -106,7 +106,7 @@ bool unload(void)
     // loop through buckets in hash table
     for (int bucket = 0; bucket < N; bucket++)
     {
-        // 
+        // retrieve the pointer to the head node from the hash table for this 'bucket'
         node *n = table[bucket];
         // loop through all the nodes in the linked list at this 'bucket'
         while ( n != NULL)
