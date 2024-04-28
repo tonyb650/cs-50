@@ -52,9 +52,10 @@ unsigned int hash(const char *word)
     // loop through each character in the word, starting with the last
     for (int i = strlen(word); i >= 0; i--)
     {
-        // multiply the 
+        // multiply the letter value(0-26) by it's position (0-strlen(word)). Then add result to hasVal
         hashVal = hashVal + (toupper(word[i])-'A')*i;
     }
+    // final hash = hashVal mod N (total number of buckets)
     return hashVal % N;
 }
 
@@ -67,20 +68,24 @@ bool load(const char *dictionary)
         printf("Could not open %s.\n", dictionary);
         return false;
     }
+    // initialize string 'word' to max possible word length
     char word[LENGTH + 1];
+    // fscanf loads one word at a time from the file opened above, until "End Of File"
     while(fscanf(dictFile, "%s", word)!=EOF)
     {
+        // keep track of the size of our dictionary as we add to it
         dictWordCount++;
-        // printf("Word =  %s.\n", word);
+        // get a hash value for the newly retrieved word
         unsigned int bucket = hash(word);
-        // printf("Bucket =  %i.\n", bucket);
         // create new node and insert in linked list
         node *n = malloc(sizeof(node));
         if(n==NULL){
             printf("Memory not allocated \n");
             return false;
         }
+        // copy the word from the file into the new node.word location
         strcpy(n->word, word); //strcpy means "string copy", it copies a string from a source into a destination
+        // move the pointer from the previous 'head'
         n->next = table[bucket];
         table[bucket] = n;
     }
