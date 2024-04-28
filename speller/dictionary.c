@@ -91,9 +91,9 @@ bool unload(void)
     // TODO
     // loop through buckets
 
-    for (0 to N)
+    for (bucket 0 to N)
     {
-        n = bucket[i]
+        n = table[bucket]
         while ( n != null)
         {
             node *next = n.next;
