@@ -1,4 +1,4 @@
-def main()
+def main():
     for i in range(3):
         meow()
 
