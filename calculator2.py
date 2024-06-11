@@ -1,8 +1,9 @@
 def get_int(prompt):
-    try:
-        return int(input(prompt))
-    except ValueError:
-        print("Not an integer")
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            print("Not an integer")
 
 
 def main():
