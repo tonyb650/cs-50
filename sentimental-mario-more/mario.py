@@ -6,6 +6,6 @@ while height < 1 or height > 8:
 for level in range(height):
     spaces = ""
     for i in range(level-1):
-        spaces += " "
+        spaces = spaces + " "
     print(spaces + "#"*(level+1) + "  " + "#"*(level+1))
 # print (f"Hello, {answer}")
