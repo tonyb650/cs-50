@@ -1,4 +1,9 @@
-# from cs50 import get_string
+from cs50 import get_float
 
-answer = input("What's your name? ")
-print (f"Hello, {answer}")
+change = -1
+while (change < 0):
+    change = get_float("Change: ")
+
+coins = 0
+# while ()
+print (f"Hello, {change}")
