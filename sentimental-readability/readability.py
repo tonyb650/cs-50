@@ -5,11 +5,11 @@ letters = 0
 words = 1
 sentences = 0
 for char in text:
-    if(char == " "):
+    if (char == " "):
         words = words + 1
-    if(char == "." or char == "!" or char == "?"):
+    if (char == "." or char == "!" or char == "?"):
         sentences = sentences + 1
-    if((ord(char) >= 65 and ord(char) <=90) or (ord(char) >= 97 and ord(char) <=122)):
+    if ((ord(char) >= 65 and ord(char) <= 90) or (ord(char) >= 97 and ord(char) <= 122)):
         letters = letters + 1
 # print(f"letters= {letters}")
 # print(f"words= {words}")
