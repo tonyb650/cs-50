@@ -14,9 +14,14 @@ for char in text:
 print(f"letters= {letters}")
 print(f"words= {words}")
 print(f"sentences= {sentences}")
-print(f"letters per 100 words = {letters/words/100}")
-print(f"sentences per 100 words = {sentences/words/100}")
+print(f"letters per 100 words = {letters/words*100}")
+print(f"sentences per 100 words = {sentences/words*100}")
 
-grade = round(0.0588 * (letters / words / 100) - 0.296 * (sentences / words / 100) - 15.8)
+grade = 0.0588 * (letters / words * 100) - 0.296 * (sentences / words * 100) - 15.8
 
-print(f"Grade, {grade}")
+if (grade < 1):
+    print("Before Grade 1")
+elif (grade >= 16):
+    print("Grade 16+")
+else:
+    print(f"Grade {round(grade)}")
