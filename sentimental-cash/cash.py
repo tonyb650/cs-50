@@ -6,7 +6,7 @@ while (change < 0):
 
 coins = 0
 while (change > 0):
-    if(change >= .25):
+    if (change >= .25):
         change = change - .25
     elif (change >= .10):
         change = change - .10
@@ -14,6 +14,6 @@ while (change > 0):
         change = change - .05
     else:
         change = change - .01
-    change = round(change,2)
+    change = round(change, 2)
     coins = coins + 1
-print (coins)
+print(coins)
