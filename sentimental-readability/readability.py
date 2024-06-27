@@ -6,11 +6,12 @@ words = 0
 sentences = 0
 for char in text:
     if(char == " "):
-        words = words +1
+        words = words + 1
     if(char == "." or char == "!" or char == "?"):
-        sentences = sentences +1
-    if()
+        sentences = sentences + 1
+    if((ord(char) >= 65 and ord(char) <=90) or (ord(char) >= 97 and ord(char) <=122))
+        letters = letters + 1
 
-grade = 0
+grade = round(0.0588 * (letters/words/100) - 0.296 * (sentences/words/100) - 15.8)
 
 print(f"Grade, {grade}")
