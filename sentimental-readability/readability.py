@@ -11,7 +11,9 @@ for char in text:
         sentences = sentences + 1
     if((ord(char) >= 65 and ord(char) <=90) or (ord(char) >= 97 and ord(char) <=122)):
         letters = letters + 1
-
+print(f"letters= {letters}")
+print(f"words= {words}")
+print(f"sentences= {sentences}")
 grade = round(0.0588 * (letters / words / 100) - 0.296 * (sentences / words / 100) - 15.8)
 
 print(f"Grade, {grade}")
