@@ -1,20 +1,24 @@
 import csv
 import sys
 
-from sys import argv
+# from sys import argv
 
-if len(argv) > 1:
+
     print(f"hello, {argv[1]}")
-else:
-    print("Hello, world\n")
 
 
 
 def main():
 
     # TODO: Check for command-line usage
+    if len(sys.argv) != 2:
+        print("Incorrect number of arguments provided\n")
+        return
+    sequencesFileName = sys.argv[1]
+    textFileName = sys.argv[2]
 
     # TODO: Read database file into a variable
+    
 
     # TODO: Read DNA sequence file into a variable
 
