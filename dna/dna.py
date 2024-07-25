@@ -30,7 +30,7 @@ def main():
 
     for row in rows:
         print("************************************")
-        reject = false
+        reject = False
         name = ""
 
         print(row)
@@ -41,7 +41,7 @@ def main():
                 # print(value)
                 diff = int(value) - longest_match(sequence, key)
                 if diff != 0:
-                    reject = true
+                    reject = True
         print(name, diff)
         if not reject:
             match = name
