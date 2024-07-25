@@ -31,7 +31,7 @@ def main():
         reject = False
         name = ""
 
-        print(row)
+        # print(row)
         for key, value in row.items():
             if key == "name":
                 name = value
