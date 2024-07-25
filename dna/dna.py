@@ -17,7 +17,6 @@ def main():
         for row in reader:
             rows.append(row)
     file.close()
-    print(rows)
 
     # TODO: Read DNA sequence file into a variable
     f = open(sequenceFile, 'r')
@@ -29,7 +28,6 @@ def main():
     match = "No match"
 
     for row in rows:
-        print("************************************")
         reject = False
         name = ""
 
@@ -38,11 +36,9 @@ def main():
             if key == "name":
                 name = value
             else:
-                # print(value)
                 diff = int(value) - longest_match(sequence, key)
                 if diff != 0:
                     reject = True
-        print(name, diff)
         if not reject:
             match = name
 
