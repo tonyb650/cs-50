@@ -43,7 +43,7 @@ def main():
                 if diff != 0:
                     reject = true
         print(name, diff)
-        if !reject:
+        if not reject:
             match = name
 
     # TODO: Check database for matching profiles
