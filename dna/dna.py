@@ -31,7 +31,7 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     matches = []
     for row in rows:
-        for item in column:
+        for item in row:
             print(item)
 
     # print(longest_match(sequence, rows[0]))
