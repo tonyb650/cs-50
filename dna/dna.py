@@ -1,6 +1,5 @@
 import csv
 import sys
-# from sys import argv
 
 def main():
 
@@ -12,8 +11,6 @@ def main():
     sequenceFile = sys.argv[2]
 
     # TODO: Read database file into a variable
-    # f = open(dbFile, 'r')
-    # db = f.read()
     rows = []
     with open(dbFile) as file:
         reader = csv.DictReader(file)
@@ -26,7 +23,7 @@ def main():
     f = open(sequenceFile, 'r')
     sequence = f.read()
     f.close()
-    print(sequence)
+    # print(sequence)
 
     # TODO: Find longest match of each STR in DNA sequence
     matches = []
