@@ -30,9 +30,10 @@ def main():
     for row in rows:
         print(row)
         for key, value in row.items():
+            if key !=
             print(key)
             print(value)
-            # print(longest_match(sequence, key))
+            print(longest_match(sequence, key))
             print("----")
 
     # TODO: Check database for matching profiles
