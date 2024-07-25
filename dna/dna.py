@@ -31,10 +31,10 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     matches = []
     for row in rows:
-        for key, value in row:
+        for key in row:
             print(key)
-            print(value)
-            print(longest_match(sequence, value))
+            # print(value)
+            print(longest_match(sequence, key))
             print("----")
 
     # TODO: Check database for matching profiles
