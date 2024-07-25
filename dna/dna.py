@@ -26,21 +26,25 @@ def main():
     # print(sequence)
 
     # TODO: Find longest match of each STR in DNA sequence
-    matches = []
+    match = "No match"
 
     for row in rows:
+        print("************************************")
         diff = 0
+        name = ""
         print(row)
         for key, value in row.items():
-            if key !=
-            print(key)
-            print(value)
-            print(longest_match(sequence, key))
-            print("----")
+            if key == "name":
+                name = value
+            else:
+                print(value)
+                diff = diff + value - longest_match(sequence, key)
+        if diff == 0:
+            match = name
 
     # TODO: Check database for matching profiles
 
-    return
+    return match
 
 
 def longest_match(sequence, subsequence):
