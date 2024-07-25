@@ -8,19 +8,23 @@ def main():
     if len(sys.argv) != 3:
         print("Incorrect number of arguments provided\n")
         return
-    sequencesFileName = sys.argv[1]
-    textFileName = sys.argv[2]
+    dbFile = sys.argv[1]
+    sequenceFile = sys.argv[2]
 
     # TODO: Read database file into a variable
-    f = open(sequencesFileName, 'r')
+    f = open(dbFile, 'r')
+    db = f.read()
 
-    rows = []
     # TODO: Read DNA sequence file into a variable
-    for row in f:
-        rows.append(row)
+    # rows = []
+    f = open(sequenceFile, 'r')
+    sequence = f.read()
+    # for row in f:
+    #     rows.append(row)
 
     # TODO: Find longest match of each STR in DNA sequence
-    print(rows)
+
+    print(longest_match(sequence, ))
 
     # TODO: Check database for matching profiles
 
