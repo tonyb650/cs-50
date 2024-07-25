@@ -37,8 +37,9 @@ def main():
             if key == "name":
                 name = value
             else:
-                print(value)
+                # print(value)
                 diff = diff + int(value) - longest_match(sequence, key)
+        print(name, diff)
         if diff == 0:
             match = name
 
