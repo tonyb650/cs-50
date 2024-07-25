@@ -30,17 +30,20 @@ def main():
 
     for row in rows:
         print("************************************")
-        diff = 0
+        reject = false
         name = ""
+
         print(row)
         for key, value in row.items():
             if key == "name":
                 name = value
             else:
                 # print(value)
-                diff = diff + int(value) - longest_match(sequence, key)
+                diff = int(value) - longest_match(sequence, key)
+                if diff != 0:
+                    reject = true
         print(name, diff)
-        if diff == 0:
+        if !reject:
             match = name
 
     # TODO: Check database for matching profiles
