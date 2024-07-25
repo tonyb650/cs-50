@@ -38,12 +38,12 @@ def main():
                 name = value
             else:
                 print(value)
-                diff = diff + value - longest_match(sequence, key)
+                diff = diff + int(value) - longest_match(sequence, key)
         if diff == 0:
             match = name
 
     # TODO: Check database for matching profiles
-
+    print(match)
     return match
 
 
