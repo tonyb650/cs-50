@@ -27,7 +27,9 @@ def main():
 
     # TODO: Find longest match of each STR in DNA sequence
     matches = []
+
     for row in rows:
+        diff = 0
         print(row)
         for key, value in row.items():
             if key !=
