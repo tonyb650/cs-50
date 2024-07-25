@@ -29,11 +29,11 @@ def main():
     matches = []
     for row in rows:
         print(row)
-        for key in row:
+        for key, value in row.items():
             print(key)
-            # print(value)
+            print(value)
             # print(longest_match(sequence, key))
-            # print("----")
+            print("----")
 
     # TODO: Check database for matching profiles
 
