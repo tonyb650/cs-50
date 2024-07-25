@@ -18,14 +18,14 @@ def main():
     for row in f:
         rows.append(row)
     print(rows)
-    
+
     # TODO: Read DNA sequence file into a variable
     f = open(sequenceFile, 'r')
     sequence = f.read()
 
     # TODO: Find longest match of each STR in DNA sequence
 
-    print(longest_match(sequence, ))
+    # print(longest_match(sequence, rows[0]))
 
     # TODO: Check database for matching profiles
 
