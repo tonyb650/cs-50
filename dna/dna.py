@@ -26,10 +26,15 @@ def main():
     f = open(sequenceFile, 'r')
     sequence = f.read()
     f.close()
+    print(sequence)
 
     # TODO: Find longest match of each STR in DNA sequence
+    matches = []
+    for row in rows:
+        for item in column:
+            print(item)
 
-    print(longest_match(sequence, rows[0]))
+    # print(longest_match(sequence, rows[0]))
 
     # TODO: Check database for matching profiles
 
