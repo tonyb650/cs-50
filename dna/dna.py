@@ -14,13 +14,13 @@ def main():
     # TODO: Read database file into a variable
     f = open(dbFile, 'r')
     db = f.read()
+    rows = []
+    for row in f:
+        rows.append(row)
 
     # TODO: Read DNA sequence file into a variable
-    # rows = []
     f = open(sequenceFile, 'r')
     sequence = f.read()
-    # for row in f:
-    #     rows.append(row)
 
     # TODO: Find longest match of each STR in DNA sequence
 
